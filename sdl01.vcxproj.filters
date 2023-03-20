@@ -31,7 +31,9 @@
     <ClInclude Include="TheNatureOfCode\Common\PVector.h">
       <Filter>TheNatureOfCode\Common</Filter>
     </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Common\Mover.h" />
+    <ClInclude Include="TheNatureOfCode\Common\Mover.h">
+      <Filter>TheNatureOfCode\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,7 +67,7 @@
       <Filter>TheNatureOfCode\Chapter1</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_7.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>TheNatureOfCode\Chapter1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
