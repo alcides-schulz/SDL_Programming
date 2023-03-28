@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../SDL_Framework.h"
+#include <cmath>
 
 class PVector
 {
