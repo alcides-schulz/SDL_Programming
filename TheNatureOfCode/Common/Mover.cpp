@@ -14,8 +14,8 @@ void Mover::Display(void)
 
 void Mover::CheckEdges(void)
 {
-    if (location.x > framework->WindowWidth() - radius) velocity.x *= -1;
-    if (location.x < radius) velocity.x *= -1;
-    if (location.y > framework->WindowHeight() - radius) velocity.y *= -1;
-    if (location.y < radius) velocity.y *= -1;
+    if (location.x > framework->WindowWidth()) location.x = 0;
+    if (location.x < 0) location.x = (float)framework->WindowWidth();
+    if (location.y > framework->WindowHeight()) location.y = 0;
+    if (location.y < 0) location.y = (float)framework->WindowHeight();
 }
