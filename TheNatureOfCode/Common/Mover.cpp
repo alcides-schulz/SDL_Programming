@@ -2,6 +2,8 @@
 
 void Mover::Update(void) 
 {
+    velocity.Add(acceleration);
+    velocity.Limit(top_speed);
     location.Add(velocity);
 }
 

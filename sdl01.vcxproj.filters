@@ -72,5 +72,8 @@
     <ClCompile Include="TheNatureOfCode\Common\Mover.cpp">
       <Filter>TheNatureOfCode\Common</Filter>
     </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp">
+      <Filter>TheNatureOfCode\Chapter1</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

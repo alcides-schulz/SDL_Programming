@@ -28,6 +28,7 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_5.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_6.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_7.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\Mover.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\PVector.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />

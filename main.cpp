@@ -14,6 +14,7 @@ void RunExample_1_4(void);
 void RunExample_1_5(void);
 void RunExample_1_6(void);
 void RunExample_1_7(void);
+void RunExample_1_8(void);
 
 void nature_of_code_menu(void)
 {
@@ -26,6 +27,7 @@ void nature_of_code_menu(void)
         cout << "\t5. Example 1.5: Vector magnitude" << endl;
         cout << "\t6. Example 1.6: Normalizing a vector" << endl;
         cout << "\t7. Example 1.7: Motion 101 (velocity)" << endl;
+        cout << "\t8. Example 1.8: Motion 101 (velocity and constant accelerarion)" << endl;
 
         cout << endl << "\tx. Exit" << endl << endl << "--> ";
 
@@ -60,6 +62,10 @@ void nature_of_code_menu(void)
         }
         if (response.compare("7") == 0) {
             RunExample_1_7();
+            continue;
+        }
+        if (response.compare("8") == 0) {
+            RunExample_1_8();
             continue;
         }
     }
