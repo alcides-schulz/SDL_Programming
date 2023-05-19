@@ -17,7 +17,7 @@ public:
     {
         radius = 16; 
         acceleration = PVector((float)0, (float)0);
-        top_speed = 10;
+        top_speed = 2;
     };
     void Update(void);
     void Display(void);

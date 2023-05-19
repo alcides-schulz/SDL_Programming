@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+const double PI_VALUE = 3.141592653589793238463;
+
 class PVector
 {
 public:
@@ -16,4 +18,5 @@ public:
     float Mag();
     void Normalize();
     void Limit(float max);
+    static PVector Random2D();
 };

@@ -51,4 +51,18 @@ void PVector::Limit(float max)
     }
 }
 
+PVector PVector::Random2D()
+{
+    //let angle = Math.random() * constants.TWO_PI;
+    //let length = 1;
+    //return { x: length * Math.cos(angle), y : length * Math.sin(angle) };
+
+    float min = -1;
+    float max = +1;
+    float r = (min + 1) + (((float)rand()) / (float)RAND_MAX) * (max - (min + 1));
+
+    float angle = (float)(r * PI_VALUE * 2);
+    return PVector(cos(angle), sin(angle));
+}
+
 // End
