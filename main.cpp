@@ -36,7 +36,9 @@ void nature_of_code_menu(void)
         string response;
         getline(cin, response);
 
-        if (response.compare("x") == 0) break;
+        if (response.compare("x") == 0) {
+            break;
+        }
 
         if (response.compare("1") == 0) {
             RunExample_1_1();
@@ -81,29 +83,31 @@ int main(int argc, char* argv[])
 {
     while (true) {
         cout << "Menu" << endl << endl;
-        cout << "\t1. Universe procedural generation" << endl;
-        cout << "\t2. Snowfall simulation" << endl;
+        cout << "\t 0. The nature of code - Daniel Shiffman" << endl;
         cout << endl;
-        cout << "\t9. The nature of code - Daniel Shiffman" << endl;
+        cout << "\t 1. Universe procedural generation" << endl;
+        cout << "\t 2. Snowfall simulation" << endl;
+        cout << endl;
 
         cout << endl << "\tx. Exit" << endl << endl << "--> ";
 
         string response;
         getline(cin, response);
 
-        if (response.compare("x") == 0) break;
+        if (response.compare("x") == 0) {
+            break;
+        }
 
+        if (response.compare("0") == 0) {
+            nature_of_code_menu();
+            continue;
+        }
         if (response.compare("1") == 0) {
             RunUniverseProceduralGeneration();
             continue;
         }
         if (response.compare("2") == 0) {
             RunSnowfallSimulation();
-            continue;
-        }
-
-        if (response.compare("9") == 0) {
-            nature_of_code_menu();
             continue;
         }
     }
