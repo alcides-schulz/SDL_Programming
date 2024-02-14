@@ -23,26 +23,26 @@ public:
 
     void ApplyForce(Vector2D force)
     {
-        Vector2D adjusted_force = Vector2D(force.GetX(), force.GetY());
-        adjusted_force *= (float)mRadius;
-        mAcceleration += adjusted_force;
+        Vector2D adjusted_force = Vector2D(force.x, force.y);
+        adjusted_force.Multiply((float)mRadius);
+        mAcceleration.Add(adjusted_force);
     }
 
     void UpdatePosition()
     {
         mOffset = (int)(sin(mAngle * 2) * 2 * mRadius);
-        mVelocity += mAcceleration;
-        if (mVelocity.GetY() > (double)(mRadius * 0.2)) {
-            mVelocity.SetY((float)(mRadius * 0.2));
+        mVelocity.Add(mAcceleration);
+        if (mVelocity.y > (double)(mRadius * 0.2)) {
+            mVelocity.y = (float)(mRadius * 0.2);
         }
-        mPosition += mVelocity;
-        mAcceleration *= 0;
-        mAngle += mDirection * (mVelocity.GetX() * mVelocity.GetX() + mVelocity.GetY() * mVelocity.GetIntY()) / 200;
+        mPosition.Add(mVelocity);
+        mAcceleration.Multiply(0);
+        mAngle += mDirection * (mVelocity.x * mVelocity.x + mVelocity.y * mVelocity.y) / 200;
     }
 
     Vector2D GetPosition()
     {
-        Vector2D temp = { mPosition.GetX() + mOffset, mPosition.GetY() };
+        Vector2D temp = { mPosition.x + mOffset, mPosition.y };
         return temp;
     }
 
@@ -74,13 +74,13 @@ public:
         {
             snowflake->ApplyForce(mGravity);
             snowflake->UpdatePosition();
-            SDL_Point center = { snowflake->GetPosition().GetIntX(), snowflake->GetPosition().GetIntY() };
+            SDL_Point center = { snowflake->GetPosition().IntX(), snowflake->GetPosition().IntY() };
             DrawCircle(center, snowflake->GetRadius(), { 255, 255, 255, 255 }, true);
         }
 
-        for (int i = mSnowflakeList.size() - 1; i >= 0; i--) {
+        for (int i = (int)mSnowflakeList.size() - 1; i >= 0; i--) {
             Snowflake *snowflake = mSnowflakeList[i];
-            if (snowflake->GetPosition().GetY() > WindowHeight()) {
+            if (snowflake->GetPosition().y > WindowHeight()) {
                 mSnowflakeList.erase(mSnowflakeList.begin() + i);
             }
         }

@@ -7,76 +7,69 @@
 #include <string>
 #include <cmath>
 #include <random>
+#include <cstdlib>
 
 using namespace std;
 
 class Vector2D
 {
-private:
-    float mX;
-    float mY;
-
 public:
-    Vector2D() : mX(0), mY(0) {}
-    Vector2D(float x, float y) : mX(x), mY(y) {}
-    Vector2D(double x, double y) : mX((float)x), mY((float)y) {}
-    Vector2D(int x, int y) : mX((float)x), mY((float)y) {}
+    float x;
+    float y;
 
-    float GetX() { return mX; }
-    float GetY() { return mY; }
+    Vector2D() : x(0), y(0) {}
+    Vector2D(float x, float y) : x(x), y(y) {}
+    Vector2D(double x, double y) : x((float)x), y((float)y) {}
+    Vector2D(int x, int y) : x((float)x), y((float)y) {}
 
-    int GetIntX() { return (int)mX; }
-    int GetIntY() { return (int)mY; }
+    int IntX() { return (int)x; }
+    int IntY() { return (int)y; }
 
-    void SetX(float x) { mX = x; }
-    void SetY(float y) { mY = y; }
-
-    Vector2D operator+(const Vector2D& v2) const
+    void Add(Vector2D v2)
     {
-        return Vector2D(mX + v2.mX, mY + v2.mY);
+        x += v2.x;
+        y += v2.y;
     }
 
-    friend Vector2D& operator+=(Vector2D& v1, const Vector2D& v2)
+    void Subtract(Vector2D v2)
     {
-        v1.mX += v2.mX;
-        v1.mY += v2.mY;
-        return v1;
+        x -= v2.x;
+        y -= v2.y;
     }
 
-    Vector2D operator*(float scalar)
+    void Multiply(float value)
     {
-        return Vector2D(mX * scalar, mY * scalar);
+        x *= value;
+        y *= value;
     }
 
-    Vector2D& operator*=(float scalar)
+    void Divide(float value)
     {
-        mX *= scalar;
-        mY *= scalar;
-        return *this;
+        x /= value;
+        y /= value;
     }
 
-    Vector2D operator-(const Vector2D& v2) const
+    float Magnitude()
     {
-        return Vector2D(mX - v2.mX, mY - v2.mY);
+        return sqrtf(x * x + y * y);
     }
 
-    friend Vector2D& operator-=(Vector2D& v1, const Vector2D& v2)
+    void Normalize()
     {
-        v1.mX -= v2.mX;
-        v1.mY -= v2.mY;
+        float magnitude = Magnitude();
+        if (magnitude != 0) {
+            Divide(magnitude);
+        }
     }
 
-    Vector2D operator/(float scalar)
+    void Limit(float max)
     {
-        return Vector2D(mX / scalar, mY / scalar);
+        if (Magnitude() > max * max) {
+            Normalize();
+            Multiply(max);
+        }
     }
-
-    Vector2D& operator/=(float scalar)
-    {
-        mX /= scalar;
-        mY /= scalar;
-        return *this;
-    }
+ 
 };
 
 class SDL_Framework
@@ -171,7 +164,9 @@ public:
             start_time = frame_start;
 
             HandleEvents();
-            UserRender(elapsed_time);
+            if (!UserRender(elapsed_time)) {
+                mIsRunning = false;
+            }
             SDL_RenderPresent(renderer());
 
             frame_count++;

@@ -20,8 +20,11 @@
     <Filter Include="Misc\UniverseProceduralGeneration">
       <UniqueIdentifier>{c71da53d-d53d-401f-ad2d-22aace3e47e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc\Snowfall">
+    <Filter Include="Misc\SnowfallSimulation">
       <UniqueIdentifier>{7d22c94a-606e-4eb0-9a4e-1d4c1e7fa1cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\ParticleSimulation">
+      <UniqueIdentifier>{91753889-8eaa-4d99-aa8f-a5e83d0341af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,9 +44,6 @@
     </ClCompile>
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp">
       <Filter>Misc\UniverseProceduralGeneration</Filter>
-    </ClCompile>
-    <ClCompile Include="Snowfall\SDL_Snowfall.cpp">
-      <Filter>Misc\Snowfall</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_1.cpp">
       <Filter>TheNatureOfCode\Chapter1</Filter>
@@ -78,5 +78,33 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_9.cpp">
       <Filter>TheNatureOfCode\Chapter1</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleSimulation\SDL_Particles.cpp">
+      <Filter>Misc\ParticleSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp">
+      <Filter>Misc\SnowfallSimulation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ParticleSimulation\ParticleSimulation.gif">
+      <Filter>Misc\ParticleSimulation</Filter>
+    </Image>
+    <Image Include="SnowfallSimulation\Snowfall.png">
+      <Filter>Misc\SnowfallSimulation</Filter>
+    </Image>
+    <Image Include="UniverseProceduralGeneration\UniverseProceduralGeneration.gif">
+      <Filter>Misc\UniverseProceduralGeneration</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ParticleSimulation\Readme.md">
+      <Filter>Misc\ParticleSimulation</Filter>
+    </None>
+    <None Include="SnowfallSimulation\Readme.md">
+      <Filter>Misc\SnowfallSimulation</Filter>
+    </None>
+    <None Include="UniverseProceduralGeneration\Readme.md">
+      <Filter>Misc\UniverseProceduralGeneration</Filter>
+    </None>
   </ItemGroup>
 </Project>

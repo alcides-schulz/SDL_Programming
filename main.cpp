@@ -6,6 +6,8 @@ using namespace std;
 void RunUniverseProceduralGeneration(void);
 void RunSnowfallSimulation(void);
 
+void RunParticles(void);
+
 // The nature of code
 void RunExample_1_1(void);
 void RunExample_1_2(void);
@@ -85,8 +87,10 @@ int main(int argc, char* argv[])
         cout << "Menu" << endl << endl;
         cout << "\t 0. The nature of code - Daniel Shiffman" << endl;
         cout << endl;
+        
         cout << "\t 1. Universe procedural generation" << endl;
         cout << "\t 2. Snowfall simulation" << endl;
+        cout << "\t 3. Particle simulation" << endl;
         cout << endl;
 
         cout << endl << "\tx. Exit" << endl << endl << "--> ";
@@ -108,6 +112,10 @@ int main(int argc, char* argv[])
         }
         if (response.compare("2") == 0) {
             RunSnowfallSimulation();
+            continue;
+        }
+        if (response.compare("3") == 0) {
+            RunParticles();
             continue;
         }
     }
