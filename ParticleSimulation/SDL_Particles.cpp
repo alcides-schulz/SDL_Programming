@@ -32,10 +32,10 @@ public:
 
     void Display(SDL_Framework *framework)
     {
-        framework->DrawCircle({ (int)position.x, (int)position.y }, 2, color, true);
+        framework->DrawCircle({ (int)position.x, (int)position.y }, 1, color, true);
     }
 
-    float Map(float value, float istart, float istop, float ostart, float ostop)
+    float Interpolate(float value, float istart, float istop, float ostart, float ostop)
     {
         return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
     }
@@ -71,14 +71,14 @@ public:
             if (distance < MIN_DISTANCE[type][other->type]) {
                 Vector2D force(direction.x, direction.y);
                 force.Multiply(fabs(FORCES[type][other->type]) * -3.0f);
-                force.Multiply(Map(distance, 0, MIN_DISTANCE[type][other->type], 1, 0));
+                force.Multiply(Interpolate(distance, 0, MIN_DISTANCE[type][other->type], 1, 0));
                 force.Multiply(SPEED_CONTROL);
                 total_force.Add(force);
             }
             if (distance < RADII[type][other->type]) {
                 Vector2D force(direction.x, direction.y);
                 force.Multiply(FORCES[type][other->type]);
-                force.Multiply(Map(distance, 0, RADII[type][other->type], 1, 0));
+                force.Multiply(Interpolate(distance, 0, RADII[type][other->type], 1, 0));
                 force.Multiply(SPEED_CONTROL);
                 total_force.Add(force);
             }
@@ -123,6 +123,7 @@ class SDL_Particles : public SDL_Framework
 {
 private:
     std::vector<Particle *>  swarm;
+    Uint32 start_time;
 
 public:
     bool UserInit() override
@@ -131,6 +132,7 @@ public:
             swarm.push_back(new Particle(i, WindowWidth(), WindowHeight()));
         }
         SetParameters();
+        start_time = SDL_GetTicks();
         return true;
     }
 
@@ -145,8 +147,20 @@ public:
             particle->Display(this);
         }
 
+        Uint32 current_time = SDL_GetTicks();
+        if (current_time > start_time + 60000) {
+            SetParameters();
+            start_time = current_time;
+        }
+
+        float line_width = WindowWidth() * (float)((current_time - start_time) / 60000.0);
+
+        SDL_SetRenderDrawColor(renderer(), 253, 254, 2, 0);
+        SDL_RenderDrawLine(renderer(), 0, 5, (int)line_width, 5);
+
         if (PressedKey() == SDLK_x) {
             SetParameters();
+            start_time = current_time;
         }
 
         return true;
@@ -156,7 +170,7 @@ public:
     {
         float random = ((float)rand()) / (float)RAND_MAX;
         float range = max - min;
-        return (random*range) + min;
+        return (random * range) + min;
     }
 
     void SetParameters()
