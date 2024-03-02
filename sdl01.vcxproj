@@ -50,6 +50,7 @@
     <None Include="ParticleSimulation\Readme.md" />
     <None Include="SnowfallSimulation\Readme.md" />
     <None Include="UniverseProceduralGeneration\Readme.md" />
+    <None Include="WaveFunctionCollapse\Readme.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

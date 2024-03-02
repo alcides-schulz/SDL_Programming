@@ -112,5 +112,8 @@
     <None Include="UniverseProceduralGeneration\Readme.md">
       <Filter>Misc\UniverseProceduralGeneration</Filter>
     </None>
+    <None Include="WaveFunctionCollapse\Readme.md">
+      <Filter>Misc\WaveFunctionCollapse</Filter>
+    </None>
   </ItemGroup>
 </Project>
