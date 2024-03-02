@@ -12,8 +12,8 @@ private:
 public:
     bool UserRender(int elapsed_time) override
     {
-        SDL_SetRenderDrawColor(renderer(), 255, 255, 255, 255);
-        SDL_RenderClear(renderer());
+        SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
+        SDL_RenderClear(Renderer());
 
         x += xspeed;
         y += yspeed;

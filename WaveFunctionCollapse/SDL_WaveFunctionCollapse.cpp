@@ -131,8 +131,8 @@ public:
 
     bool UserRender(int elapsed_time) override
     {
-        SDL_SetRenderDrawColor(renderer(), 0, 0, 0, 0); // black color
-        SDL_RenderClear(renderer());
+        SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color_
+        SDL_RenderClear(Renderer());
 
         if (debug_images_) {
             DrawDebug();
@@ -151,7 +151,7 @@ public:
 
     void DrawTiles()
     {
-        SDL_SetRenderDrawColor(renderer(), 255, 255, 255, 0);
+        SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 0);
 
         for each (auto tile in all_tiles_)
         {
@@ -349,7 +349,7 @@ public:
     void ShowImage(int row, int col, Image *image)
     {
         SDL_Rect r = { col * kTileWidth, row * kTileHeight, kTileWidth, kTileHeight };
-        SDL_RenderCopy(renderer(), image->texture, NULL, &r);
+        SDL_RenderCopy(Renderer(), image->texture, NULL, &r);
     }
 
     SDL_Surface* RotateSurface(SDL_Surface* surface)
@@ -487,7 +487,7 @@ public:
                 SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't load image %s, error: %s", image->filename, IMG_GetError());
                 return false;
             }
-            image->texture = SDL_CreateTextureFromSurface(renderer(), image->surface);
+            image->texture = SDL_CreateTextureFromSurface(Renderer(), image->surface);
             if (!image->texture) {
                 SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't texture from image %s, error: %s", image->filename, IMG_GetError());
                 return false;
@@ -515,7 +515,7 @@ public:
                 if (!rotated_image->surface) {
                     return false;
                 }
-                rotated_image->texture = SDL_CreateTextureFromSurface(renderer(), rotated_image->surface);
+                rotated_image->texture = SDL_CreateTextureFromSurface(Renderer(), rotated_image->surface);
                 if (!rotated_image->texture) {
                     SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't texture from image %s, error: %s", image->filename, IMG_GetError());
                     return false;

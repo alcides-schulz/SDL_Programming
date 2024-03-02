@@ -126,8 +126,8 @@ public:
 
     bool UserRender(int elapsed_time) override
     {
-        SDL_SetRenderDrawColor(renderer(), 0, 0, 0, 0); // black color
-        SDL_RenderClear(renderer());
+        SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color_
+        SDL_RenderClear(Renderer());
 
         if (PressedKey() == SDLK_w) mGalaxyOffset.y -= 50;
         if (PressedKey() == SDLK_s) mGalaxyOffset.y += 50;
@@ -184,11 +184,11 @@ public:
         {
             StarSystem star(mSelectedStarSeed1, mSelectedStarSeed2, true);
 
-            SDL_SetRenderDrawColor(renderer(), 0, 0, 128, 0); // dark blue color
+            SDL_SetRenderDrawColor(Renderer(), 0, 0, 128, 0); // dark blue color_
             SDL_Rect r = { 8, WindowHeight() - 232, 550, 232 };
-            SDL_RenderFillRect(renderer(), &r);
-            SDL_SetRenderDrawColor(renderer(), 255, 255, 255, 0); // white color
-            SDL_RenderDrawRect(renderer(), &r);
+            SDL_RenderFillRect(Renderer(), &r);
+            SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 0); // white color_
+            SDL_RenderDrawRect(Renderer(), &r);
 
             SDL_Point body = { 14, WindowHeight() - 232 / 2 };
 

@@ -60,8 +60,8 @@ private:
 public:
     bool UserRender(int elapsed_time) override
     {
-        SDL_SetRenderDrawColor(renderer(), 0, 0, 0, 0); // black color
-        SDL_RenderClear(renderer());
+        SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color_
+        SDL_RenderClear(Renderer());
         
         if (mSnowflakeList.size() < 400) {
             int x = rand() % WindowWidth();

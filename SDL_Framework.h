@@ -77,18 +77,18 @@ public:
 class SDL_Framework
 {
 private:
-    bool mIsRunning = false;
-    SDL_Window* mWindow;
-    const char *mWindowTitle;
-    SDL_Renderer* mRenderer;
-    SDL_Keycode mPressedKey = 0;
-    std::vector<bool> mMouseButtonStates;
-    SDL_Point mMousePosition = { 0,0 };
-    int mWindowWidth = 0;
-    int mWindowHeight = 0;
+    SDL_Window          *window_;
+    const char          *window_title_;
+    SDL_Renderer        *renderer_;
+    SDL_Keycode         last_key_pressed_ = 0;
+    std::vector<bool>   mouse_button_states_;
+    SDL_Point           mouse_position_ = { 0,0 };
+    int                 window_width_ = 0;
+    int                 window_height_ = 0;
+    bool                is_running_ = false;
 
-    const int FPS = 60;
-    const Uint32 MAX_FRAME_TIME = (Uint32)(1000.0f / FPS);
+    const int           kFPS = 60;
+    const Uint32        kMaxFrameTime = (Uint32)(1000.0f / kFPS);
 
 public:
     enum MOUSE_BUTTONS
@@ -100,25 +100,25 @@ public:
 
     SDL_Framework()
     {
-        mMouseButtonStates.push_back(false);
-        mMouseButtonStates.push_back(false);
-        mMouseButtonStates.push_back(false);
+        mouse_button_states_.push_back(false);
+        mouse_button_states_.push_back(false);
+        mouse_button_states_.push_back(false);
     }
 
     virtual bool UserInit() { return true; };
     virtual bool UserRender(int elapsed_time) { if (elapsed_time) return true; return true; };
     virtual void UserClean() {};
 
-    int SDL_Framework::WindowWidth() { return mWindowWidth; }
-    int SDL_Framework::WindowHeight() { return mWindowHeight; }
-    SDL_Renderer* SDL_Framework::renderer() { return mRenderer; }
-    SDL_Window* SDL_Framework::window() { return mWindow; }
+    int SDL_Framework::WindowWidth() { return window_width_; }
+    int SDL_Framework::WindowHeight() { return window_height_; }
+    SDL_Renderer* SDL_Framework::Renderer() { return renderer_; }
+    SDL_Window* SDL_Framework::Window() { return window_; }
 
-    SDL_Keycode PressedKey() { return mPressedKey; }
+    SDL_Keycode PressedKey() { return last_key_pressed_; }
 
-    SDL_Point MousePosition() { return mMousePosition; }
+    SDL_Point MousePosition() { return mouse_position_; }
 
-    bool IsMouseButtonPressed(enum MOUSE_BUTTONS mouse_button) { return mMouseButtonStates[mouse_button]; }
+    bool IsMouseButtonPressed(enum MOUSE_BUTTONS mouse_button) { return mouse_button_states_[mouse_button]; }
 
     bool Init(const char* title, int x, int y, int width, int height, int flags)
     {
@@ -130,29 +130,29 @@ public:
             return false;
         }
 
-        mWindowTitle = title;
+        window_title_ = title;
 
-        mWindow = SDL_CreateWindow(title, x, y, width, height, flags);
-        if (mWindow == 0) {
+        window_ = SDL_CreateWindow(title, x, y, width, height, flags);
+        if (window_ == 0) {
             std::cout << "SDL_CreateWindow failed.\n";
             std::getchar();
             return false;
         }
 
-        SDL_GetWindowSize(mWindow, &mWindowWidth, &mWindowHeight);
-        if (mWindowWidth <= 0) mWindowWidth = 1;
-        if (mWindowHeight <= 0) mWindowHeight = 1;
+        SDL_GetWindowSize(window_, &window_width_, &window_height_);
+        if (window_width_ <= 0) window_width_ = 1;
+        if (window_height_ <= 0) window_height_ = 1;
 
-        mRenderer = SDL_CreateRenderer(mWindow, -1, 0);
-        if (mRenderer == 0) {
+        renderer_ = SDL_CreateRenderer(window_, -1, 0);
+        if (renderer_ == 0) {
             std::cout << "SDL_CreateRenderer failed.\n";
             std::getchar();
             return false;
         }
 
-        mIsRunning = UserInit();
+        is_running_ = UserInit();
 
-        return mIsRunning;
+        return is_running_;
     }
 
     void Run()
@@ -161,38 +161,38 @@ public:
         Uint32 timer = start_time;
         int frame_count = 0;
 
-        while (mIsRunning) {
+        while (is_running_) {
             Uint32 frame_start = SDL_GetTicks();
             Uint32 elapsed_time = frame_start - start_time;
             start_time = frame_start;
 
             HandleEvents();
             if (!UserRender(elapsed_time)) {
-                mIsRunning = false;
+                is_running_ = false;
             }
-            SDL_RenderPresent(renderer());
+            SDL_RenderPresent(Renderer());
 
             frame_count++;
             if (SDL_GetTicks() - timer > 1000) {
-                std::string t = mWindowTitle;
+                std::string t = window_title_;
                 t.append(" (");
                 t.append(std::to_string(frame_count));
                 t.append(" FPS)");
-                SDL_SetWindowTitle(mWindow, t.c_str());
+                SDL_SetWindowTitle(window_, t.c_str());
                 timer += 1000;
                 frame_count = 0;
             }
 
             Uint32 frame_time = SDL_GetTicks() - frame_start;
-            if (frame_time < MAX_FRAME_TIME) {
-                SDL_Delay((int)(MAX_FRAME_TIME - frame_time));
+            if (frame_time < kMaxFrameTime) {
+                SDL_Delay((int)(kMaxFrameTime - frame_time));
             }
         }
 
         UserClean();
 
-        SDL_DestroyWindow(mWindow);
-        SDL_DestroyRenderer(mRenderer);
+        SDL_DestroyWindow(window_);
+        SDL_DestroyRenderer(renderer_);
         SDL_Quit();
     }
 
@@ -200,18 +200,18 @@ public:
     {
         int radius2 = radius * radius;
 
-        SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, color.a);
+        SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);
         for (int w = 0; w <= radius * 2; w++) {
             for (int h = 0; h <= radius * 2; h++) {
                 int dx = radius - w;
                 int dy = radius - h;
                 int pos = dx * dx + dy * dy;
                 if (fill && pos <= radius2) {
-                    SDL_RenderDrawPoint(mRenderer, center.x + dx, center.y + dy);
+                    SDL_RenderDrawPoint(renderer_, center.x + dx, center.y + dy);
                 }
                 int diff = pos - radius2;
                 if (!fill && abs(diff) <= 10) {
-                    SDL_RenderDrawPoint(mRenderer, center.x + dx, center.y + dy);
+                    SDL_RenderDrawPoint(renderer_, center.x + dx, center.y + dy);
                 }
             }
         }
@@ -220,30 +220,30 @@ public:
 private:
     void HandleEvents()
     {
-        mPressedKey = 0;
+        last_key_pressed_ = 0;
 
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
             case SDL_KEYDOWN:
-                mPressedKey = event.key.keysym.sym;
+                last_key_pressed_ = event.key.keysym.sym;
                 break;
             case SDL_QUIT:
-                mIsRunning = false;
+                is_running_ = false;
                 break;
             case SDL_MOUSEMOTION:
-                mMousePosition.x = event.motion.x;
-                mMousePosition.y = event.motion.y;
+                mouse_position_.x = event.motion.x;
+                mouse_position_.y = event.motion.y;
                 break;
             case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == SDL_BUTTON_LEFT) mMouseButtonStates[LEFT] = true;
-                if (event.button.button == SDL_BUTTON_MIDDLE) mMouseButtonStates[MIDDLE] = true;
-                if (event.button.button == SDL_BUTTON_RIGHT) mMouseButtonStates[RIGHT] = true;
+                if (event.button.button == SDL_BUTTON_LEFT) mouse_button_states_[LEFT] = true;
+                if (event.button.button == SDL_BUTTON_MIDDLE) mouse_button_states_[MIDDLE] = true;
+                if (event.button.button == SDL_BUTTON_RIGHT) mouse_button_states_[RIGHT] = true;
                 break;
             case SDL_MOUSEBUTTONUP:
-                if (event.button.button == SDL_BUTTON_LEFT) mMouseButtonStates[LEFT] = false;
-                if (event.button.button == SDL_BUTTON_MIDDLE) mMouseButtonStates[MIDDLE] = false;
-                if (event.button.button == SDL_BUTTON_RIGHT) mMouseButtonStates[RIGHT] = false;
+                if (event.button.button == SDL_BUTTON_LEFT) mouse_button_states_[LEFT] = false;
+                if (event.button.button == SDL_BUTTON_MIDDLE) mouse_button_states_[MIDDLE] = false;
+                if (event.button.button == SDL_BUTTON_RIGHT) mouse_button_states_[RIGHT] = false;
                 break;
             default:
                 break;

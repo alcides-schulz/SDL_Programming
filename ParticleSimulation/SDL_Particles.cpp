@@ -1,38 +1,40 @@
 #include "../SDL_Framework.h"
 
-#define NUM_TYPES 6
-#define NUM_PARTICLES 900
-#define SPEED_CONTROL 0.03f
-#define FRICTION 0.85f
+#define kNumTypes       6
+#define kNumParticles   900
+#define kSpeedControl   0.03f
+#define kFriction       0.85f
 
-#define TESTID -1
+#define kTestID         -1
 
-float MIN_DISTANCE[NUM_TYPES][NUM_TYPES];
-float FORCES[NUM_TYPES][NUM_TYPES];
-float RADII[NUM_TYPES][NUM_TYPES];
+float kMinDistance[kNumTypes][kNumTypes];
+float kForces[kNumTypes][kNumTypes];
+float kRADII[kNumTypes][kNumTypes];
 
-SDL_Color PALLETE[NUM_TYPES] = { {77,238,234}, {116,238,21}, {255,231,0}, {240,0,255}, {0,30,255}, {228,3,3} };
+SDL_Color kPallete[kNumTypes] = { {77,238,234}, {116,238,21}, {255,231,0}, {240,0,255}, {0,30,255}, {228,3,3} };
 
 class Particle {
+
 private:
-    int         id;
-    Vector2D    position;
-    Vector2D    velocity;
-    int         type;
-    SDL_Color   color;
+    int         id_;
+    Vector2D    position_;
+    Vector2D    velocity_;
+    int         type_;
+    SDL_Color   color_;
+
 public:
     Particle(int id, int width, int height)
     {
-        this->id = id;
-        position = Vector2D((rand() % width), (rand() % height));
-        velocity = Vector2D(0, 0);
-        type = rand() % NUM_TYPES;
-        color = PALLETE[type];
+        this->id_ = id;
+        position_ = Vector2D((rand() % width), (rand() % height));
+        velocity_ = Vector2D(0, 0);
+        type_ = rand() % kNumTypes;
+        color_ = kPallete[type_];
     }
 
     void Display(SDL_Framework *framework)
     {
-        framework->DrawCircle({ (int)position.x, (int)position.y }, 1, color, true);
+        framework->DrawCircle({ (int)position_.x, (int)position_.y }, 1, color_, true);
     }
 
     float Interpolate(float value, float istart, float istop, float ostart, float ostop)
@@ -48,12 +50,12 @@ public:
         float distance;
 
         for each (Particle *other in swarm) {
-            if (this->id == other->id) {
+            if (this->id_ == other->id_) {
                 continue;
             }
-            direction.x = other->position.x;
-            direction.y = other->position.y;
-            direction.Subtract(position);
+            direction.x = other->position_.x;
+            direction.y = other->position_.y;
+            direction.Subtract(position_);
             if (direction.x > 0.5 * framework->WindowWidth()) {
                 direction.x -= framework->WindowWidth();
             }
@@ -68,53 +70,51 @@ public:
             }
             distance = direction.Magnitude();
             direction.Normalize();
-            if (distance < MIN_DISTANCE[type][other->type]) {
+            if (distance < kMinDistance[type_][other->type_]) {
                 Vector2D force(direction.x, direction.y);
-                force.Multiply(fabs(FORCES[type][other->type]) * -3.0f);
-                force.Multiply(Interpolate(distance, 0, MIN_DISTANCE[type][other->type], 1, 0));
-                force.Multiply(SPEED_CONTROL);
+                force.Multiply(fabs(kForces[type_][other->type_]) * -3.0f);
+                force.Multiply(Interpolate(distance, 0, kMinDistance[type_][other->type_], 1, 0));
+                force.Multiply(kSpeedControl);
                 total_force.Add(force);
             }
-            if (distance < RADII[type][other->type]) {
+            if (distance < kRADII[type_][other->type_]) {
                 Vector2D force(direction.x, direction.y);
-                force.Multiply(FORCES[type][other->type]);
-                force.Multiply(Interpolate(distance, 0, RADII[type][other->type], 1, 0));
-                force.Multiply(SPEED_CONTROL);
+                force.Multiply(kForces[type_][other->type_]);
+                force.Multiply(Interpolate(distance, 0, kRADII[type_][other->type_], 1, 0));
+                force.Multiply(kSpeedControl);
                 total_force.Add(force);
             }
         }
 
-        if (id == TESTID) {
-            cout << "id: " << id << endl;
-            cout << "position1: " << position.x << "," << position.y << endl << endl;
-            cout << "velocity1: " << velocity.x << "," << velocity.y << endl;
+        if (id_ == kTestID) {
+            cout << "id: " << id_ << endl;
+            cout << "position1: " << position_.x << "," << position_.y << endl << endl;
+            cout << "velocity1: " << velocity_.x << "," << velocity_.y << endl;
         }
         acceleration.Add(total_force);
-        velocity.Add(acceleration);
-        position.Add(velocity);
-        if (position.x > framework->WindowWidth()) {
-            position.x -= framework->WindowWidth();
+        velocity_.Add(acceleration);
+        position_.Add(velocity_);
+        if (position_.x > framework->WindowWidth()) {
+            position_.x -= framework->WindowWidth();
         }
-        if (position.x < 0) {
-            position.x += framework->WindowWidth();
+        if (position_.x < 0) {
+            position_.x += framework->WindowWidth();
         }
-        if (position.y > framework->WindowHeight()) {
-            position.y -= framework->WindowHeight();
+        if (position_.y > framework->WindowHeight()) {
+            position_.y -= framework->WindowHeight();
         }
-        if (position.y < 0) {
-            position.y += framework->WindowHeight();
+        if (position_.y < 0) {
+            position_.y += framework->WindowHeight();
         }
-        //position.x = (float)((int)(position.x + framework->WindowWidth()) % framework->WindowWidth());
-        //position.y = (float)((int)(position.y + framework->WindowHeight()) % framework->WindowHeight());
-        velocity.Multiply(FRICTION);
+        velocity_.Multiply(kFriction);
 
-        if (id == TESTID) {
-            cout << "id: " << id << endl;
-            cout << "position1: " << position.x << "," << position.y << endl << endl;
+        if (id_ == kTestID) {
+            cout << "id: " << id_ << endl;
+            cout << "position1: " << position_.x << "," << position_.y << endl << endl;
             cout << "total_force: " << total_force.x << "," << total_force.y << endl;
             cout << "acceleration: " << acceleration.x << "," << acceleration.y << endl;
-            cout << "position2: " << position.x << "," << position.y << endl;
-            cout << "velocity2: " << velocity.x << "," << velocity.y << endl << endl;
+            cout << "position2: " << position_.x << "," << position_.y << endl;
+            cout << "velocity2: " << velocity_.x << "," << velocity_.y << endl << endl;
         }
     }
 };
@@ -122,45 +122,45 @@ public:
 class SDL_Particles : public SDL_Framework
 {
 private:
-    std::vector<Particle *>  swarm;
-    Uint32 start_time;
+    std::vector<Particle *> swarm_;
+    Uint32                  start_time_;
 
 public:
     bool UserInit() override
     {
-        for (int i = 0; i < NUM_PARTICLES; i++) {
-            swarm.push_back(new Particle(i, WindowWidth(), WindowHeight()));
+        for (int i = 0; i < kNumParticles; i++) {
+            swarm_.push_back(new Particle(i, WindowWidth(), WindowHeight()));
         }
         SetParameters();
-        start_time = SDL_GetTicks();
+        start_time_ = SDL_GetTicks();
         return true;
     }
 
     bool UserRender(int elapsed_time) override
     {
-        SDL_SetRenderDrawColor(renderer(), 0, 0, 0, 0); // black color
-        SDL_RenderClear(renderer());
+        SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color
+        SDL_RenderClear(Renderer());
 
-        for each (Particle *particle in swarm)
+        for each (Particle *particle in swarm_)
         {
-            particle->Update(this, swarm);
+            particle->Update(this, swarm_);
             particle->Display(this);
         }
 
         Uint32 current_time = SDL_GetTicks();
-        if (current_time > start_time + 60000) {
+        if (current_time > start_time_ + 60000) {
             SetParameters();
-            start_time = current_time;
+            start_time_ = current_time;
         }
 
-        float line_width = WindowWidth() * (float)((current_time - start_time) / 60000.0);
+        float line_width = WindowWidth() * (float)((current_time - start_time_) / 60000.0);
 
-        SDL_SetRenderDrawColor(renderer(), 253, 254, 2, 0);
-        SDL_RenderDrawLine(renderer(), 0, 5, (int)line_width, 5);
+        SDL_SetRenderDrawColor(Renderer(), 253, 254, 2, 0);
+        SDL_RenderDrawLine(Renderer(), 0, 5, (int)line_width, 5);
 
         if (PressedKey() == SDLK_x) {
             SetParameters();
-            start_time = current_time;
+            start_time_ = current_time;
         }
 
         return true;
@@ -175,41 +175,41 @@ public:
 
     void SetParameters()
     {
-        for (int i = 0; i < NUM_TYPES; i++) {
-            for (int j = 0; j < NUM_TYPES; j++) {
-                FORCES[i][j] = RandomFloat(0.3f, 1.0f);
+        for (int i = 0; i < kNumTypes; i++) {
+            for (int j = 0; j < kNumTypes; j++) {
+                kForces[i][j] = RandomFloat(0.3f, 1.0f);
                 if (rand() % 100 < 50) {
-                    FORCES[i][j] *= -1.0;
+                    kForces[i][j] *= -1.0;
                 }
-                MIN_DISTANCE[i][j] = RandomFloat(30, 50);
-                RADII[i][j] = RandomFloat(100, 200);
+                kMinDistance[i][j] = RandomFloat(30, 50);
+                kRADII[i][j] = RandomFloat(100, 200);
             }
         }
     }
 
     void PrintParameters()
     {
-        for (int i = 0; i < NUM_TYPES; i++) {
+        for (int i = 0; i < kNumTypes; i++) {
             cout << "FORCE[" << i << "]: ";
-            for (int j = 0; j < NUM_TYPES; j++) {
+            for (int j = 0; j < kNumTypes; j++) {
                 if (j > 0) cout << ", ";
-                cout << FORCES[i][j];
+                cout << kForces[i][j];
             }
             cout << endl;
         }
-        for (int i = 0; i < NUM_TYPES; i++) {
+        for (int i = 0; i < kNumTypes; i++) {
             cout << "MIN_DIST[" << i << "]: ";
-            for (int j = 0; j < NUM_TYPES; j++) {
+            for (int j = 0; j < kNumTypes; j++) {
                 if (j > 0) cout << ", ";
-                cout << MIN_DISTANCE[i][j];
+                cout << kMinDistance[i][j];
             }
             cout << endl;
         }
-        for (int i = 0; i < NUM_TYPES; i++) {
+        for (int i = 0; i < kNumTypes; i++) {
             cout << "RADII[" << i << "]: ";
-            for (int j = 0; j < NUM_TYPES; j++) {
+            for (int j = 0; j < kNumTypes; j++) {
                 if (j > 0) cout << ", ";
-                cout << RADII[i][j];
+                cout << kRADII[i][j];
             }
             cout << endl;
         }
