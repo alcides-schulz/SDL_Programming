@@ -3,10 +3,11 @@
 
 using namespace std;
 
+// Misc
 void RunUniverseProceduralGeneration(void);
 void RunSnowfallSimulation(void);
-
 void RunParticles(void);
+void RunWaveFunctionCollapse(void);
 
 // The nature of code
 void RunExample_1_1(void);
@@ -91,9 +92,10 @@ int main(int argc, char* argv[])
         cout << "\t 1. Universe procedural generation" << endl;
         cout << "\t 2. Snowfall simulation" << endl;
         cout << "\t 3. Particle simulation" << endl;
+        cout << "\t 4. Wave Function Collapse" << endl;
         cout << endl;
 
-        cout << endl << "\tx. Exit" << endl << endl << "--> ";
+        cout << endl << "\t x. Exit" << endl << endl << "--> ";
 
         string response;
         getline(cin, response);
@@ -116,6 +118,10 @@ int main(int argc, char* argv[])
         }
         if (response.compare("3") == 0) {
             RunParticles();
+            continue;
+        }
+        if (response.compare("4") == 0) {
+            RunWaveFunctionCollapse();
             continue;
         }
     }

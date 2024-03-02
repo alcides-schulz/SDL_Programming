@@ -26,6 +26,9 @@
     <Filter Include="Misc\ParticleSimulation">
       <UniqueIdentifier>{91753889-8eaa-4d99-aa8f-a5e83d0341af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc\WaveFunctionCollapse">
+      <UniqueIdentifier>{cbd2a8ed-39e9-4295-910b-83be0687b556}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL_Framework.h">
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp">
       <Filter>Misc\SnowfallSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp">
+      <Filter>Misc\WaveFunctionCollapse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

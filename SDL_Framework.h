@@ -1,9 +1,11 @@
 #pragma once
 
 #include "SDL.h"
+#include <SDL_image.h>
 
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <string>
 #include <cmath>
 #include <random>
@@ -110,6 +112,7 @@ public:
     int SDL_Framework::WindowWidth() { return mWindowWidth; }
     int SDL_Framework::WindowHeight() { return mWindowHeight; }
     SDL_Renderer* SDL_Framework::renderer() { return mRenderer; }
+    SDL_Window* SDL_Framework::window() { return mWindow; }
 
     SDL_Keycode PressedKey() { return mPressedKey; }
 

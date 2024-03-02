@@ -34,6 +34,7 @@
     <ClCompile Include="TheNatureOfCode\Common\Mover.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\PVector.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />
+    <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL_Framework.h" />
@@ -106,11 +107,14 @@
     <LibraryPath>d:\Projetos\sdl2\lib\x86;d:\Projetos\SDL2\image\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Alcides\sdl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Alcides\sdl\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Program\SDL2\include;D:\Program\SDL2\image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program\SDL2\image\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <OutDir>$(SolutionDir)\binaries</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\Program\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Program\SDL2\include;D:\Program\SDL2\image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program\SDL2\image\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <OutDir>$(SolutionDir)Binaries\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,7 +137,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <CallingConvention>StdCall</CallingConvention>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);D:\Program\SDL2\lib\x64\SDL2.lib;D:\Program\SDL2\image\lib\x64\SDL2_image.lib;</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,11 +163,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>D:\Program\SDL2\lib\x64\SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Program\SDL2\lib\x64\SDL2.lib;D:\Program\SDL2\image\lib\x64\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
