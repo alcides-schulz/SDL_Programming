@@ -40,6 +40,18 @@
     <ClInclude Include="TheNatureOfCode\Common\Mover.h">
       <Filter>TheNatureOfCode\Common</Filter>
     </ClInclude>
+    <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h">
+      <Filter>Misc\UniverseProceduralGeneration</Filter>
+    </ClInclude>
+    <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h">
+      <Filter>Misc\SnowfallSimulation</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSimulation\SDL_ParticleSimulation.h">
+      <Filter>Misc\ParticleSimulation</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.h">
+      <Filter>Misc\WaveFunctionCollapse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,14 +93,17 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_9.cpp">
       <Filter>TheNatureOfCode\Chapter1</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleSimulation\SDL_Particles.cpp">
-      <Filter>Misc\ParticleSimulation</Filter>
-    </ClCompile>
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp">
       <Filter>Misc\SnowfallSimulation</Filter>
     </ClCompile>
     <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp">
       <Filter>Misc\WaveFunctionCollapse</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL_Framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSimulation\SDL_ParticleSimulation.cpp">
+      <Filter>Misc\ParticleSimulation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +115,9 @@
     </Image>
     <Image Include="UniverseProceduralGeneration\UniverseProceduralGeneration.gif">
       <Filter>Misc\UniverseProceduralGeneration</Filter>
+    </Image>
+    <Image Include="WaveFunctionCollapse\WaveFunctionCollapse.gif">
+      <Filter>Misc\WaveFunctionCollapse</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

@@ -7,10 +7,10 @@
 
 class Example_1_9 : public SDL_Framework
 {
-private:
-    Mover *mover;
-
 public:
+    Example_1_9() :
+        SDL_Framework("Example 1.9: Motion 101 (velocity and random acceleration)", 400, 100, 1200, 800, 0) {}
+
     bool UserInit() override
     {
         PVector location((float)(WindowWidth() / 2), (float)(WindowHeight() / 2));
@@ -24,23 +24,19 @@ public:
     {
         SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
         SDL_RenderClear(Renderer());
-
         mover->acceleration = PVector::Random2D();
         mover->Update();
         mover->CheckEdges();
         mover->Display();
-
         return true;
     }
+private:
+    Mover *mover;
 };
 
-void RunExample_1_9(void)
+SDL_Framework *GetInstanceExample_1_9()
 {
-    Example_1_9 example;
-    if (example.Init("Example 1.9: Motion 101 (velocity and random acceleration)", 400, 100, 1200, 800, 0)) {
-        example.Run();
-    }
+    return new Example_1_9();
 }
 
-
-
+// END

@@ -20,7 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ParticleSimulation\SDL_Particles.cpp" />
+    <ClCompile Include="ParticleSimulation\SDL_ParticleSimulation.cpp" />
+    <ClCompile Include="SDL_Framework.cpp" />
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_1.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_2.cpp" />
@@ -37,14 +38,19 @@
     <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ParticleSimulation\SDL_ParticleSimulation.h" />
     <ClInclude Include="SDL_Framework.h" />
+    <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
     <ClInclude Include="TheNatureOfCode\Common\Mover.h" />
     <ClInclude Include="TheNatureOfCode\Common\PVector.h" />
+    <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />
+    <ClInclude Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ParticleSimulation\ParticleSimulation.gif" />
     <Image Include="SnowfallSimulation\Snowfall.png" />
     <Image Include="UniverseProceduralGeneration\UniverseProceduralGeneration.gif" />
+    <Image Include="WaveFunctionCollapse\WaveFunctionCollapse.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ParticleSimulation\Readme.md" />
@@ -165,11 +171,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>D:\Program\SDL2\lib\x64\SDL2.lib;D:\Program\SDL2\image\lib\x64\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Program\SDL2\lib\x64\SDL2main.lib;D:\Program\SDL2\lib\x64\SDL2.lib;D:\Program\SDL2\image\lib\x64\SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

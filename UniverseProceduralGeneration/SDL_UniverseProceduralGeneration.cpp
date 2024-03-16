@@ -1,4 +1,4 @@
-#include "../SDL_Framework.h"
+#include "SDL_UniverseProceduralGeneration.h"
 
 constexpr SDL_Color kStarColors[8] =
 {
@@ -78,12 +78,6 @@ public:
         }
     }
 
-    ~StarSystem()
-    {
-
-    }
-
-
 private:
     uint32_t generation_seed_ = 0;
 
@@ -110,122 +104,104 @@ private:
 };
 
 
-class SDL_UniverseProceduralGeneration : public SDL_Framework
+bool SDL_UniverseProceduralGeneration::UserRender(int elapsed_time)
 {
-private:
-    SDL_Point   galaxy_offset_ = { 0, 0 };
-    bool        start_is_selected_ = false;
-    uint32_t    selected_start_seed1_ = 0;
-    uint32_t    selected_start_seed2 = 0;
-public:
-    bool UserRender(int elapsed_time) override
-    {
-        SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color_
-        SDL_RenderClear(Renderer());
+    SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color
+    SDL_RenderClear(Renderer());
 
-        if (PressedKey() == SDLK_w) galaxy_offset_.y -= 50;
-        if (PressedKey() == SDLK_s) galaxy_offset_.y += 50;
-        if (PressedKey() == SDLK_a) galaxy_offset_.x -= 50;
-        if (PressedKey() == SDLK_d) galaxy_offset_.x += 50;
+    if (PressedKey() == SDLK_w) galaxy_offset_.y -= 50;
+    if (PressedKey() == SDLK_s) galaxy_offset_.y += 50;
+    if (PressedKey() == SDLK_a) galaxy_offset_.x -= 50;
+    if (PressedKey() == SDLK_d) galaxy_offset_.x += 50;
 
-        //std::cout << "(" << galaxy_offset_.x << "," << galaxy_offset_.y << ")\n";
+    //std::cout << "(" << galaxy_offset_.x << "," << galaxy_offset_.y << ")\n";
 
-        int sectors_x = WindowWidth() / 16;
-        int sectors_y = WindowHeight() / 16;
+    int sectors_x = WindowWidth() / 16;
+    int sectors_y = WindowHeight() / 16;
 
-        SDL_Point vMouse = { MousePosition().x / 16 , MousePosition().y / 16 };
+    SDL_Point vMouse = { MousePosition().x / 16 , MousePosition().y / 16 };
 
-        for (int screen_sector_x = 0; screen_sector_x < sectors_x; screen_sector_x++) {
+    for (int screen_sector_x = 0; screen_sector_x < sectors_x; screen_sector_x++) {
 
-            for (int screen_sector_y = 0; screen_sector_y < sectors_y; screen_sector_y++) {
+        for (int screen_sector_y = 0; screen_sector_y < sectors_y; screen_sector_y++) {
 
-                uint32_t seed1 = galaxy_offset_.x + screen_sector_x;
-                uint32_t seed2 = galaxy_offset_.y + screen_sector_y;
-
-                StarSystem star(seed1, seed2);
-                if (star.start_exists)
-                {
-                    SDL_Point p = { screen_sector_x * 16 + 8, screen_sector_y * 16 + 8 };
-                    
-                    DrawCircle(p, (int)star.start_diameter / 8, star.start_color, true);
-
-                    if (vMouse.x == screen_sector_x && vMouse.y == screen_sector_y) {
-                        p.x = screen_sector_x * 16 + 8;
-                        p.y = screen_sector_y * 16 + 8;
-                        DrawCircle(p, 12, { 255,255,255,255 }, false);
-                    }
-                }
-            }
-        }
-
-        if (IsMouseButtonPressed(LEFT))
-        {
-            uint32_t seed1 = galaxy_offset_.x + vMouse.x;
-            uint32_t seed2 = galaxy_offset_.y + vMouse.y;
+            uint32_t seed1 = galaxy_offset_.x + screen_sector_x;
+            uint32_t seed2 = galaxy_offset_.y + screen_sector_y;
 
             StarSystem star(seed1, seed2);
             if (star.start_exists)
             {
-                start_is_selected_ = true;
-                selected_start_seed1_ = seed1;
-                selected_start_seed2 = seed2;
-            }
-            else
-                start_is_selected_ = false;
-        }
+                SDL_Point p = { screen_sector_x * 16 + 8, screen_sector_y * 16 + 8 };
 
-        if (start_is_selected_)
+                DrawCircle(p, (int)star.start_diameter / 8, star.start_color, true);
+
+                if (vMouse.x == screen_sector_x && vMouse.y == screen_sector_y) {
+                    p.x = screen_sector_x * 16 + 8;
+                    p.y = screen_sector_y * 16 + 8;
+                    DrawCircle(p, 12, { 255,255,255,255 }, false);
+                }
+            }
+        }
+    }
+
+    if (IsMouseButtonPressed(kMouseLeftButton))
+    {
+        uint32_t seed1 = galaxy_offset_.x + vMouse.x;
+        uint32_t seed2 = galaxy_offset_.y + vMouse.y;
+
+        StarSystem star(seed1, seed2);
+        if (star.start_exists)
         {
-            StarSystem star(selected_start_seed1_, selected_start_seed2, true);
-
-            SDL_SetRenderDrawColor(Renderer(), 0, 0, 128, 0); // dark blue color_
-            SDL_Rect r = { 8, WindowHeight() - 232, 550, 232 };
-            SDL_RenderFillRect(Renderer(), &r);
-            SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 0); // white color_
-            SDL_RenderDrawRect(Renderer(), &r);
-
-            SDL_Point body = { 14, WindowHeight() - 232 / 2 };
-
-            body.x += (int)(star.start_diameter * 1.375);
-            DrawCircle(body, (int)(star.start_diameter * 1.375), star.start_color, true);
-            body.x += (int)((star.start_diameter * 1.375) + 8);
-
-            for (auto& planet : star.planets)
-            {
-                if (body.x + planet.diameter >= 496) break;
-
-                body.x += (int)planet.diameter;
-                DrawCircle(body, (int)(planet.diameter * 1.0), { 255, 0, 0, 0 }, true); // red
-
-                if (planet.ring) {
-                    DrawCircle(body, (int)(planet.diameter * 1.0 + 5), { 255, 255, 255, 255 }, false);// white
-                }
-
-                SDL_Point moon_position = { body.x, body.y };
-                moon_position.y += (int)(planet.diameter + 10);
-
-                for (auto& moon : planet.moons)
-                {
-                    moon_position.y += (int)moon;
-                    DrawCircle(moon_position, (int)moon, { 192, 192, 192, 0 }, true); // gray
-                    moon_position.y += (int)(moon + 10);
-                }
-
-                body.x += (int)(planet.diameter + 8);
-            }
+            start_is_selected_ = true;
+            selected_start_seed1_ = seed1;
+            selected_start_seed2_ = seed2;
         }
-
-        return true;
+        else
+            start_is_selected_ = false;
     }
-};
 
-void RunUniverseProceduralGeneration(void)
-{
-    SDL_UniverseProceduralGeneration universe;
-    if (universe.Init("Universe Procedural Generation", 400, 100, 1200, 800, 0)) {
-        universe.Run();
+    if (start_is_selected_)
+    {
+        StarSystem star(selected_start_seed1_, selected_start_seed2_, true);
+
+        SDL_SetRenderDrawColor(Renderer(), 0, 0, 128, 0); // dark blue color_
+        SDL_Rect r = { 8, WindowHeight() - 232, 550, 232 };
+        SDL_RenderFillRect(Renderer(), &r);
+        SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 0); // white color_
+        SDL_RenderDrawRect(Renderer(), &r);
+
+        SDL_Point body = { 14, WindowHeight() - 232 / 2 };
+
+        body.x += (int)(star.start_diameter * 1.375);
+        DrawCircle(body, (int)(star.start_diameter * 1.375), star.start_color, true);
+        body.x += (int)((star.start_diameter * 1.375) + 8);
+
+        for (auto& planet : star.planets)
+        {
+            if (body.x + planet.diameter >= 496) break;
+
+            body.x += (int)planet.diameter;
+            DrawCircle(body, (int)(planet.diameter * 1.0), { 255, 0, 0, 0 }, true); // red
+
+            if (planet.ring) {
+                DrawCircle(body, (int)(planet.diameter * 1.0 + 5), { 255, 255, 255, 255 }, false);// white
+            }
+
+            SDL_Point moon_position = { body.x, body.y };
+            moon_position.y += (int)(planet.diameter + 10);
+
+            for (auto& moon : planet.moons)
+            {
+                moon_position.y += (int)moon;
+                DrawCircle(moon_position, (int)moon, { 192, 192, 192, 0 }, true); // gray
+                moon_position.y += (int)(moon + 10);
+            }
+
+            body.x += (int)(planet.diameter + 8);
+        }
     }
+
+    return true;
 }
 
-
-
+//END

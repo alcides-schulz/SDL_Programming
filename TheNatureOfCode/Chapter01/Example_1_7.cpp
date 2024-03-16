@@ -7,10 +7,10 @@
 
 class Example_1_7 : public SDL_Framework
 {
-private:
-    Mover *mover;
-
 public:
+    Example_1_7() :
+        SDL_Framework("Example 1.7: Motion 101 (velocity)", 400, 100, 1200, 800, 0) {}
+
     bool UserInit() override
     {
         srand((unsigned int)time(NULL));
@@ -24,22 +24,18 @@ public:
     {
         SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
         SDL_RenderClear(Renderer());
-
         mover->Update();
         mover->CheckEdges();
         mover->Display();
-
         return true;
     }
+private:
+    Mover *mover;
 };
 
-void RunExample_1_7(void)
+SDL_Framework *GetInstanceExample_1_7()
 {
-    Example_1_7 example;
-    if (example.Init("Example 1.7: Motion 101 (velocity)", 400, 100, 1200, 800, 0)) {
-        example.Run();
-    }
+    return new Example_1_7();
 }
 
-
-
+//END
