@@ -24,6 +24,7 @@
     <ClCompile Include="SDL_Framework.cpp" />
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_1.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_10.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_2.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_3.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_4.cpp" />

@@ -20,6 +20,7 @@ SDL_Framework *GetInstanceExample_1_6();
 SDL_Framework *GetInstanceExample_1_7();
 SDL_Framework *GetInstanceExample_1_8();
 SDL_Framework *GetInstanceExample_1_9();
+SDL_Framework *GetInstanceExample_1_10();
 
 void InitNocMenu1()
 {
@@ -33,6 +34,7 @@ void InitNocMenu1()
     noc_menu1.push_back(GetInstanceExample_1_7());
     noc_menu1.push_back(GetInstanceExample_1_8());
     noc_menu1.push_back(GetInstanceExample_1_9());
+    noc_menu1.push_back(GetInstanceExample_1_10());
 }
 
 void InitMiscMenu()

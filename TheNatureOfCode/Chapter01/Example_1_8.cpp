@@ -2,9 +2,6 @@
 #include "../Common/PVector.h"
 #include "../Common/Mover.h"
 
-#include <cstdlib>
-#include <time.h>
-
 class Example_1_8 : public SDL_Framework
 {
 public:

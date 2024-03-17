@@ -2,11 +2,11 @@
 #include "../Common/PVector.h"
 #include "../Common/Mover.h"
 
-class Example_1_9 : public SDL_Framework
+class Example_1_10 : public SDL_Framework
 {
 public:
-    Example_1_9() :
-        SDL_Framework("Example 1.9: Motion 101 (velocity and random acceleration)", 400, 100, 1200, 800, 0) {}
+    Example_1_10() :
+        SDL_Framework("Example 1.10: Accelerating Toward the Mouse", 400, 100, 1200, 800, 0) {}
 
     bool UserInit() override
     {
@@ -21,7 +21,12 @@ public:
     {
         SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
         SDL_RenderClear(Renderer());
-        mover->acceleration = PVector::Random2D();
+        PVector mouse = PVector((float)MousePosition().x, (float)MousePosition().y);
+        PVector direction = PVector(mouse.x, mouse.y);
+        direction.Sub(mover->location);
+        direction.Normalize();
+        direction.Mult(0.2f);
+        mover->acceleration = direction;
         mover->Update();
         mover->CheckEdges();
         mover->Display();
@@ -31,9 +36,9 @@ private:
     Mover *mover;
 };
 
-SDL_Framework *GetInstanceExample_1_9()
+SDL_Framework *GetInstanceExample_1_10()
 {
-    return new Example_1_9();
+    return new Example_1_10();
 }
 
 // END

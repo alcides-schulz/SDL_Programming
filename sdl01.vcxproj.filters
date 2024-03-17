@@ -105,6 +105,9 @@
     <ClCompile Include="ParticleSimulation\SDL_ParticleSimulation.cpp">
       <Filter>Misc\ParticleSimulation</Filter>
     </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_10.cpp">
+      <Filter>TheNatureOfCode\Chapter1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="ParticleSimulation\ParticleSimulation.gif">
