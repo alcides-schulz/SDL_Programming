@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParticleSimulation\SDL_ParticleSimulation.cpp" />
+    <ClCompile Include="Sand\SDL_Sand.cpp" />
     <ClCompile Include="SDL_Framework.cpp" />
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_1.cpp" />
@@ -40,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ParticleSimulation\SDL_ParticleSimulation.h" />
+    <ClInclude Include="Sand\SDL_Sand.h" />
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
     <ClInclude Include="TheNatureOfCode\Common\Mover.h" />
@@ -49,12 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="ParticleSimulation\ParticleSimulation.gif" />
+    <Image Include="Sand\Sand.gif" />
     <Image Include="SnowfallSimulation\Snowfall.png" />
     <Image Include="UniverseProceduralGeneration\UniverseProceduralGeneration.gif" />
     <Image Include="WaveFunctionCollapse\WaveFunctionCollapse.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ParticleSimulation\Readme.md" />
+    <None Include="Sand\Readme.md" />
     <None Include="SnowfallSimulation\Readme.md" />
     <None Include="UniverseProceduralGeneration\Readme.md" />
     <None Include="WaveFunctionCollapse\Readme.md" />

@@ -3,6 +3,7 @@
 #include "SnowfallSimulation/SDL_Snowfall.h"
 #include "ParticleSimulation/SDL_ParticleSimulation.h"
 #include "WaveFunctionCollapse/SDL_WaveFunctionCollapse.h"
+#include "Sand/SDL_Sand.h"
 
 using namespace std;
 
@@ -44,6 +45,7 @@ void InitMiscMenu()
     misc_menu.push_back(new SDL_Snowfall());
     misc_menu.push_back(new SDL_ParticleSimulation());
     misc_menu.push_back(new SDL_WaveFunctionCollapse("Images\\Circuit"));
+    misc_menu.push_back(new SDL_Sand());
 }
 
 void NatureOfCodeMenu(void)
