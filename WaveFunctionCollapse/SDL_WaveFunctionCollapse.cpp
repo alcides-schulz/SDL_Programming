@@ -57,7 +57,7 @@ bool SDL_WaveFunctionCollapse::UserRender(int elapsed_time)
         DrawTiles();
         UpdateTiles();
     }
-    if (PressedKey() == SDLK_d) {
+    if (IsKeyPressed(SDLK_d)) {
         debug_images_ = !debug_images_;
     }
     return true;
@@ -247,12 +247,12 @@ void SDL_WaveFunctionCollapse::DrawDebug()
         }
     }
 
-    if (PressedKey() == SDLK_n) {
+    if (IsKeyPressed(SDLK_n)) {
         if (current_index_ < all_images_.size() - 1) {
             current_index_++;
         }
     }
-    if (PressedKey() == SDLK_p) {
+    if (IsKeyPressed(SDLK_p)) {
         if (current_index_ > 0) {
             current_index_--;
         }

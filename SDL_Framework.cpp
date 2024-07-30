@@ -124,13 +124,19 @@ void SDL_Framework::DrawCircle(SDL_Point center, int radius, SDL_Color color, bo
 
 void SDL_Framework::HandleEvents()
 {
-    key_pressed_ = 0;
-
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
         case SDL_KEYDOWN:
-            key_pressed_ = event.key.keysym.sym;
+            {
+                auto found = std::find(pressed_keys_.begin(), pressed_keys_.end(), event.key.keysym.sym);
+                if (found == pressed_keys_.end()) {
+                    pressed_keys_.push_back(event.key.keysym.sym);
+                }
+            }
+            break;
+        case SDL_KEYUP:
+            pressed_keys_.remove(event.key.keysym.sym);
             break;
         case SDL_QUIT:
             is_running_ = false;
@@ -153,6 +159,11 @@ void SDL_Framework::HandleEvents()
             break;
         }
     }
+}
+
+bool SDL_Framework::IsKeyPressed(Sint32 key)
+{
+    return std::find(pressed_keys_.begin(), pressed_keys_.end(), key) != pressed_keys_.end();
 }
     
 //END

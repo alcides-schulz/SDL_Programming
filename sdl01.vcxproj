@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParticleSimulation\SDL_ParticleSimulation.cpp" />
+    <ClCompile Include="RayCastingWalls\SDL_RayCastingWalls.cpp" />
     <ClCompile Include="Sand\SDL_Sand.cpp" />
     <ClCompile Include="SDL_Framework.cpp" />
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp" />
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ParticleSimulation\SDL_ParticleSimulation.h" />
+    <ClInclude Include="RayCastingWalls\SDL_RayCastingWalls.h" />
     <ClInclude Include="Sand\SDL_Sand.h" />
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
@@ -58,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ParticleSimulation\Readme.md" />
+    <None Include="RayCastingWalls\Readme.md" />
     <None Include="Sand\Readme.md" />
     <None Include="SnowfallSimulation\Readme.md" />
     <None Include="UniverseProceduralGeneration\Readme.md" />

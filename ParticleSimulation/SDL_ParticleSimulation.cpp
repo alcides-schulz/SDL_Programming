@@ -140,7 +140,7 @@ bool SDL_ParticleSimulation::UserRender(int elapsed_time)
     SDL_SetRenderDrawColor(Renderer(), 253, 254, 2, 0);
     SDL_RenderDrawLine(Renderer(), 0, 5, (int)line_width, 5);
 
-    if (PressedKey() == SDLK_x) {
+    if (IsKeyPressed(SDLK_x)) {
         SetParameters();
         start_time_ = current_time;
     }

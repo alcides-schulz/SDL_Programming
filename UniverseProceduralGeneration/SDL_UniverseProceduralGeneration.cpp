@@ -109,10 +109,10 @@ bool SDL_UniverseProceduralGeneration::UserRender(int elapsed_time)
     SDL_SetRenderDrawColor(Renderer(), 0, 0, 0, 0); // black color
     SDL_RenderClear(Renderer());
 
-    if (PressedKey() == SDLK_w) galaxy_offset_.y -= 50;
-    if (PressedKey() == SDLK_s) galaxy_offset_.y += 50;
-    if (PressedKey() == SDLK_a) galaxy_offset_.x -= 50;
-    if (PressedKey() == SDLK_d) galaxy_offset_.x += 50;
+    if (IsKeyPressed(SDLK_w)) galaxy_offset_.y -= 50;
+    if (IsKeyPressed(SDLK_s)) galaxy_offset_.y += 50;
+    if (IsKeyPressed(SDLK_a)) galaxy_offset_.x -= 50;
+    if (IsKeyPressed(SDLK_d)) galaxy_offset_.x += 50;
 
     //std::cout << "(" << galaxy_offset_.x << "," << galaxy_offset_.y << ")\n";
 

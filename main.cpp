@@ -4,6 +4,7 @@
 #include "ParticleSimulation/SDL_ParticleSimulation.h"
 #include "WaveFunctionCollapse/SDL_WaveFunctionCollapse.h"
 #include "Sand/SDL_Sand.h"
+#include "RayCastingWalls/SDL_RayCastingWalls.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ void InitMiscMenu()
     misc_menu.push_back(new SDL_ParticleSimulation());
     misc_menu.push_back(new SDL_WaveFunctionCollapse("Images\\Circuit"));
     misc_menu.push_back(new SDL_Sand());
+    misc_menu.push_back(new SDL_RayCastingWalls());
 }
 
 void NatureOfCodeMenu(void)

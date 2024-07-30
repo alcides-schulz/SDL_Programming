@@ -11,6 +11,7 @@
 #include <cmath>
 #include <random>
 #include <cstdlib>
+#include <list>
 
 using namespace std;
 
@@ -91,13 +92,13 @@ public:
     int WindowHeight() { return window_height_; }
     SDL_Renderer* Renderer() { return renderer_; }
     SDL_Window* Window() { return window_; }
-    SDL_Keycode PressedKey() { return key_pressed_; }
     SDL_Point MousePosition() { return mouse_position_; }
     bool IsMouseButtonPressed(int mouse_button) { return mouse_button_states_[mouse_button]; }
     bool Init(const char* title, int x, int y, int width, int height, int flags);
     bool Init();
     void Run();
     void DrawCircle(SDL_Point center, int radius, SDL_Color color, bool fill);
+    bool IsKeyPressed(Sint32 key);
 private:
     SDL_Window      *window_;
     const char      *window_title_;
@@ -107,13 +108,13 @@ private:
     int             window_height_ = 0;
     int             window_flags_ = 0;
     SDL_Renderer    *renderer_;
-    SDL_Keycode     key_pressed_ = SDLK_UNKNOWN;
+    list<Sint32>    pressed_keys_;
     bool            mouse_button_states_[3] = { false, false, false };
-    SDL_Point       mouse_position_ = { 0,0 };
+    SDL_Point       mouse_position_ = { 0, 0 };
     bool            is_running_ = false;
     const int       kFPS = 60;
     const Uint32    kMaxFrameTime = (Uint32)(1000.0f / kFPS);
-    void HandleEvents();
+    void            HandleEvents();
 };
 
 #endif

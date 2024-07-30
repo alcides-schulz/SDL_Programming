@@ -32,6 +32,9 @@
     <Filter Include="Misc\Sand">
       <UniqueIdentifier>{d99daec5-4552-4a1b-8bb3-98684c9e207d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc\RayCastingWalls">
+      <UniqueIdentifier>{9068f344-959a-47c9-b20a-ae664d2dbb43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL_Framework.h">
@@ -57,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="Sand\SDL_Sand.h">
       <Filter>Misc\Sand</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCastingWalls\SDL_RayCastingWalls.h">
+      <Filter>Misc\RayCastingWalls</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +123,9 @@
     <ClCompile Include="Sand\SDL_Sand.cpp">
       <Filter>Misc\Sand</Filter>
     </ClCompile>
+    <ClCompile Include="RayCastingWalls\SDL_RayCastingWalls.cpp">
+      <Filter>Misc\RayCastingWalls</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="ParticleSimulation\ParticleSimulation.gif">
@@ -151,5 +160,6 @@
     <None Include="Sand\Readme.md">
       <Filter>Misc\Sand</Filter>
     </None>
+    <None Include="RayCastingWalls\Readme.md" />
   </ItemGroup>
 </Project>
