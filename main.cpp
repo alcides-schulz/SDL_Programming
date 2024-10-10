@@ -50,7 +50,7 @@ void InitMiscMenu()
     misc_menu.push_back(new SDL_RayCastingWalls());
 }
 
-void NatureOfCodeMenu(void)
+void NatureOfCodeChapter1Menu(void)
 {
     InitNocMenu1();
     while (true) {
@@ -76,12 +76,31 @@ void NatureOfCodeMenu(void)
     }
 }
 
+void NatureOfCodeMenu(void)
+{
+    while (true) {
+        cout << "Nature of Code Menu" << endl;
+        cout << endl << "\t 1. Chapter 1 - Vectors";
+        cout << endl << "\t 2. Chapter 2 - Forces";
+        cout << endl << "\t x. Exit" << endl << endl << "--> ";
+        string response;
+        getline(cin, response);
+        if (response.compare("x") == 0) {
+            break;
+        }
+        if (response.compare("1") == 0) {
+            NatureOfCodeChapter1Menu();
+            continue;
+        }
+    }
+}
+
 int main(int argc, char* argv[])
 {
     InitMiscMenu();
     while (true) {
         cout << "Menu" << endl << endl;
-        cout << "\t 0. The Nature of Code book by Daniel Shiffman" << endl;
+        cout << "\t 0. The Nature of Code book by Daniel Shiffman" << endl << endl;
         for (int i = 0; i < misc_menu.size(); i++) {
             cout << "\t " << (char)('a' + i) << ". " << misc_menu[i]->WindowTitle() << endl;
         }
