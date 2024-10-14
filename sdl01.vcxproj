@@ -48,6 +48,7 @@
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1_Mover.h" />
     <ClInclude Include="TheNatureOfCode\Common\Mover.h" />
     <ClInclude Include="TheNatureOfCode\Common\PVector.h" />
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />

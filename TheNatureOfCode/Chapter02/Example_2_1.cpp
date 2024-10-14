@@ -1,55 +1,70 @@
 #include "Example_2_1.h"
-#include "../Common/PVector.h"
+
+bool Example_2_1::UserInit()
+{
+    PVector location(WindowWidth() / 2.0f, WindowHeight() / 2.0f);
+    PVector velocity(0, 0);
+    mover_ = new Example_2_1_Mover(this, location, velocity, 10);
+    return true;
+}
 
 bool Example_2_1::UserRender(int elapsed_time)
 {
     SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
     SDL_RenderClear(Renderer());
-    x += xspeed;
-    y += yspeed;
-    if (x > WindowWidth() - radius || x < radius) {
-        xspeed *= -1;
-    }
-    if (y > WindowHeight() - radius || y < radius) {
-        yspeed *= -1;
-    }
-    DrawCircle({ (int)x, (int)y }, radius, { 255, 0, 0, 0 }, true);
+
+    PVector gravity(0, 0.1f);
+    mover_->ApplyForce(gravity);
+    mover_->Update();
+    mover_->Display();
+    mover_->CheckEdges();
+
     return true;
 }
 
-class Mover
-{
-public:
-    SDL_Framework *framework;
-    PVector location;
-    PVector velocity;
-    PVector acceleration;
-    float top_speed;
-    int radius;
-    Mover(SDL_Framework *framework, PVector location, PVector velocity) :
-        framework(framework), location(location), velocity(velocity)
-    {
-        radius = 16;
-        acceleration = PVector((float)0, (float)0);
-        top_speed = 2;
-    };
-    void Mover::Update(void)
-    {
-        velocity.Add(acceleration);
-        velocity.Limit(top_speed);
-        location.Add(velocity);
-    }
-    void Mover::Display(void)
-    {
-        framework->DrawCircle({ (int)location.x, (int)location.y }, radius, { 255, 0, 0, 0 }, true);
-    }
-    void Mover::CheckEdges(void)
-    {
-        if (location.x > framework->WindowWidth()) location.x = 0;
-        if (location.x < 0) location.x = (float)framework->WindowWidth();
-        if (location.y > framework->WindowHeight()) location.y = 0;
-        if (location.y < 0) location.y = (float)framework->WindowHeight();
-    }
+Example_2_1_Mover::Example_2_1_Mover(SDL_Framework *framework, PVector location, PVector velocity, int mass) :
+    framework_(framework), location(location), velocity(velocity), mass(mass) {
+    radius = 16;
+    acceleration = PVector(0.0f, 0.0f);
 };
+
+void Example_2_1_Mover::ApplyForce(PVector force)
+{
+    PVector temp = PVector(force);
+    temp.Div((float)mass);
+    acceleration.Add(temp);
+}
+
+void Example_2_1_Mover::Update(void)
+{
+    velocity.Add(acceleration);
+    location.Add(velocity);
+    acceleration.Mult(0);
+}
+
+void Example_2_1_Mover::Display(void)
+{
+    framework_->DrawCircle({ (int)location.x, (int)location.y }, radius, { 255, 0, 0, 0 }, true);
+}
+
+void Example_2_1_Mover::CheckEdges(void)
+{
+    if (location.x > framework_->WindowWidth()) {
+        location.x = (float)framework_->WindowWidth();
+        velocity.x *= -1;
+    }
+    if (location.x < 0) {
+        location.x = 0;
+        velocity.x *= -1;
+    }
+    if (location.y > framework_->WindowHeight()) {
+        location.y = (float)framework_->WindowHeight();
+        velocity.y *= -1;
+    }
+    if (location.y < 0) {
+        location.y = 0;
+        velocity.y *= -1;
+    }
+}
 
 // END

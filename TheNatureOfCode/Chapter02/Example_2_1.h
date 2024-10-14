@@ -3,18 +3,16 @@
 
 #include "../../SDL_Framework.h"
 
+#include "Example_2_1_Mover.h"
+
 class Example_2_1 : public SDL_Framework
 {
 public:
-    Example_2_1() :
-        SDL_Framework("Example 2.1: new", 400, 100, 1200, 800, 0) {}
+    Example_2_1() : SDL_Framework("Example 2.1: Forces", 400, 100, 1200, 800, 0) {};
+    bool UserInit() override;
     bool UserRender(int elapsed_time) override;
 private:
-    float x = 100;
-    float y = 100;
-    float xspeed = 1;
-    float yspeed = 3.3f;
-    int radius = 16;
+    Example_2_1_Mover *mover_;
 };
 
 #endif

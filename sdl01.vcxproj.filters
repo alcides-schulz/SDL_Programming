@@ -70,6 +70,9 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1_Mover.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
