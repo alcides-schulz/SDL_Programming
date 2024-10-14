@@ -12,7 +12,8 @@ using namespace std;
 vector<SDL_Framework *> misc_menu;
 
 // The nature of code book
-vector<SDL_Framework *> noc_menu1;
+vector<SDL_Framework *> noc_chapter01_menu;
+vector<SDL_Framework *> noc_chapter02_menu;
 SDL_Framework *GetInstanceExample_1_1();
 SDL_Framework *GetInstanceExample_1_2();
 SDL_Framework *GetInstanceExample_1_3();
@@ -24,19 +25,23 @@ SDL_Framework *GetInstanceExample_1_8();
 SDL_Framework *GetInstanceExample_1_9();
 SDL_Framework *GetInstanceExample_1_10();
 
-void InitNocMenu1()
+#include "TheNatureOfCode/Chapter02/Example_2_1.h"
+
+void InitNatureOfCodeMenus()
 {
-    noc_menu1.clear();
-    noc_menu1.push_back(GetInstanceExample_1_1());
-    noc_menu1.push_back(GetInstanceExample_1_2());
-    noc_menu1.push_back(GetInstanceExample_1_3());
-    noc_menu1.push_back(GetInstanceExample_1_4());
-    noc_menu1.push_back(GetInstanceExample_1_5());
-    noc_menu1.push_back(GetInstanceExample_1_6());
-    noc_menu1.push_back(GetInstanceExample_1_7());
-    noc_menu1.push_back(GetInstanceExample_1_8());
-    noc_menu1.push_back(GetInstanceExample_1_9());
-    noc_menu1.push_back(GetInstanceExample_1_10());
+    // chapter 01
+    noc_chapter01_menu.push_back(GetInstanceExample_1_1());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_2());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_3());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_4());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_5());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_6());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_7());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_8());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_9());
+    noc_chapter01_menu.push_back(GetInstanceExample_1_10());
+    // chapter 02
+    noc_chapter02_menu.push_back(new Example_2_1());
 }
 
 void InitMiscMenu()
@@ -50,13 +55,12 @@ void InitMiscMenu()
     misc_menu.push_back(new SDL_RayCastingWalls());
 }
 
-void NatureOfCodeChapter1Menu(void)
+void NatureOfCodeChapterMenu(vector<SDL_Framework *> chapter_menu)
 {
-    InitNocMenu1();
     while (true) {
         cout << "Menu" << endl << endl;
-        for (int i = 0; i < noc_menu1.size(); i++) {
-            cout << "\t " << (char)('a' + i) << ". " << noc_menu1[i]->WindowTitle() << endl;
+        for (int i = 0; i < chapter_menu.size(); i++) {
+            cout << "\t " << (char)('a' + i) << ". " << chapter_menu[i]->WindowTitle() << endl;
         }
         cout << endl << "\t x. Exit" << endl << endl << "--> ";
         string response;
@@ -64,11 +68,11 @@ void NatureOfCodeChapter1Menu(void)
         if (response.compare("x") == 0) {
             break;
         }
-        for (int i = 0; i < noc_menu1.size(); i++) {
+        for (int i = 0; i < chapter_menu.size(); i++) {
             string selection(1, ('a' + i));
             if (response.compare(selection) == 0) {
-                if (noc_menu1[i]->Init()) {
-                    noc_menu1[i]->Run();
+                if (chapter_menu[i]->Init()) {
+                    chapter_menu[i]->Run();
                 }
                 break;
             }
@@ -89,7 +93,11 @@ void NatureOfCodeMenu(void)
             break;
         }
         if (response.compare("1") == 0) {
-            NatureOfCodeChapter1Menu();
+            NatureOfCodeChapterMenu(noc_chapter01_menu);
+            continue;
+        }
+        if (response.compare("2") == 0) {
+            NatureOfCodeChapterMenu(noc_chapter02_menu);
             continue;
         }
     }
@@ -98,6 +106,8 @@ void NatureOfCodeMenu(void)
 int main(int argc, char* argv[])
 {
     InitMiscMenu();
+    InitNatureOfCodeMenus();
+
     while (true) {
         cout << "Menu" << endl << endl;
         cout << "\t 0. The Nature of Code book by Daniel Shiffman" << endl << endl;

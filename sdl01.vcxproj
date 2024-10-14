@@ -35,6 +35,7 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_7.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_9.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_1.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\Mover.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\PVector.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="Sand\SDL_Sand.h" />
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
     <ClInclude Include="TheNatureOfCode\Common\Mover.h" />
     <ClInclude Include="TheNatureOfCode\Common\PVector.h" />
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />
