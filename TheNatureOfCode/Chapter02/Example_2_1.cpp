@@ -15,6 +15,10 @@ bool Example_2_1::UserRender(int elapsed_time)
 
     PVector gravity(0, 0.1f);
     mover_->ApplyForce(gravity);
+    if (IsMouseButtonPressed(kMouseLeftButton)) {
+        PVector wind(0.1f, 0);
+        mover_->ApplyForce(wind);
+    }
     mover_->Update();
     mover_->Display();
     mover_->CheckEdges();
