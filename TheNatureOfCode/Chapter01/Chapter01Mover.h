@@ -1,9 +1,9 @@
 #pragma once
 
-#include "PVector.h"
+#include "../Common/PVector.h"
 #include "../../SDL_Framework.h"
 
-class Mover 
+class Chapter01Mover 
 {
 public:
     SDL_Framework *framework;
@@ -12,7 +12,7 @@ public:
     PVector acceleration;
     float top_speed;
     int radius;
-    Mover(SDL_Framework *framework, PVector location, PVector velocity) : 
+    Chapter01Mover(SDL_Framework *framework, PVector location, PVector velocity) : 
         framework(framework), location(location), velocity(velocity)
     {
         radius = 16; 

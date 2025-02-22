@@ -1,10 +1,10 @@
-#ifndef EXAMPLE_2_1_MOVER_H
-#define EXAMPLE_2_1_MOVER_H
+#ifndef CHAPTER_02_MOVER_H
+#define CHAPTER_02_MOVER_H
 
 #include "../../SDL_Framework.h"
 #include "../Common/PVector.h"
 
-class Example_2_1_Mover
+class Chapter02Mover
 {
 public:
     SDL_Framework   *framework_;
@@ -14,7 +14,7 @@ public:
     int             radius;
     int             mass;
 
-    Example_2_1_Mover(SDL_Framework *framework, PVector location, PVector velocity, int mass);
+    Chapter02Mover(SDL_Framework *framework, PVector location, int mass);
     void ApplyForce(PVector force);
     void Update(void);
     void Display(void);

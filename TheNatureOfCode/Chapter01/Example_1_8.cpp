@@ -1,6 +1,6 @@
 #include "../../SDL_Framework.h"
 #include "../Common/PVector.h"
-#include "../Common/Mover.h"
+#include "../Chapter01/Chapter01Mover.h"
 
 class Example_1_8 : public SDL_Framework
 {
@@ -12,7 +12,7 @@ public:
     {
         PVector location((float)(WindowWidth() / 2), (float)(WindowHeight() / 2));
         PVector velocity(0, 0);
-        mover = new Mover(this, location, velocity);
+        mover = new Chapter01Mover(this, location, velocity);
         mover->acceleration = PVector((float)-0.001, (float)0.01);
         return true;
     }
@@ -27,7 +27,7 @@ public:
         return true;
     }
 private:
-    Mover *mover;
+    Chapter01Mover *mover;
 };
 
 SDL_Framework *GetInstanceExample_1_8()

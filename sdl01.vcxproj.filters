@@ -46,9 +46,6 @@
     <ClInclude Include="TheNatureOfCode\Common\PVector.h">
       <Filter>TheNatureOfCode\Common</Filter>
     </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Common\Mover.h">
-      <Filter>TheNatureOfCode\Common</Filter>
-    </ClInclude>
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h">
       <Filter>Misc\UniverseProceduralGeneration</Filter>
     </ClInclude>
@@ -70,7 +67,13 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1_Mover.h">
+    <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01Mover.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02Mover.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_2.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
   </ItemGroup>
@@ -105,9 +108,6 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_7.cpp">
       <Filter>TheNatureOfCode\Chapter01</Filter>
     </ClCompile>
-    <ClCompile Include="TheNatureOfCode\Common\Mover.cpp">
-      <Filter>TheNatureOfCode\Common</Filter>
-    </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp">
       <Filter>TheNatureOfCode\Chapter01</Filter>
     </ClCompile>
@@ -136,6 +136,15 @@
       <Filter>Misc\RayCastingWalls</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_1.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter01\Chapter01Mover.cpp">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02Mover.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_2.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
   </ItemGroup>
