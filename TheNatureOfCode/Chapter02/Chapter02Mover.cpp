@@ -28,20 +28,20 @@ void Chapter02Mover::Display(void)
 
 void Chapter02Mover::CheckEdges(void)
 {
-    if (location.x > framework_->WindowWidth()) {
-        location.x = (float)framework_->WindowWidth();
+    if (location.x > framework_->WindowWidth() - radius) {
+        location.x = (float)framework_->WindowWidth() - radius;
         velocity.x *= -1;
     }
-    if (location.x < 0) {
-        location.x = 0;
+    if (location.x < radius) {
+        location.x = (float)radius;
         velocity.x *= -1;
     }
-    if (location.y > framework_->WindowHeight()) {
-        location.y = (float)framework_->WindowHeight();
+    if (location.y > framework_->WindowHeight() - radius) {
+        location.y = (float)framework_->WindowHeight() - radius;
         velocity.y *= -1;
     }
-    if (location.y < 0) {
-        location.y = 0;
+    if (location.y < radius) {
+        location.y = (float)radius;
         velocity.y *= -1;
     }
 }
