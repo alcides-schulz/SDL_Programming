@@ -53,6 +53,7 @@
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
     <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01Mover.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_1.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02Mover.h" />
