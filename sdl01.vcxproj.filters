@@ -76,6 +76,15 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_2.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_3.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_4.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -145,6 +154,15 @@
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_2.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_3.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_4.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
   </ItemGroup>

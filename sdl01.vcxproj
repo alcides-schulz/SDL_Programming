@@ -37,8 +37,11 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_9.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02Mover.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_1.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_2.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_3.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_4.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\PVector.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />
     <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp" />
@@ -50,9 +53,12 @@
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
     <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01Mover.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02Mover.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_2.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_3.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_4.h" />
     <ClInclude Include="TheNatureOfCode\Common\PVector.h" />
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />
     <ClInclude Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.h" />

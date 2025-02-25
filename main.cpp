@@ -27,6 +27,8 @@ SDL_Framework *GetInstanceExample_1_10();
 
 #include "TheNatureOfCode/Chapter02/Example_2_1.h"
 #include "TheNatureOfCode/Chapter02/Example_2_2.h"
+#include "TheNatureOfCode/Chapter02/Example_2_3.h"
+#include "TheNatureOfCode/Chapter02/Example_2_4.h"
 
 void InitNatureOfCodeMenus()
 {
@@ -44,6 +46,8 @@ void InitNatureOfCodeMenus()
     // chapter 02
     noc_chapter02_menu.push_back(new Example_2_1());
     noc_chapter02_menu.push_back(new Example_2_2());
+    noc_chapter02_menu.push_back(new Example_2_3());
+    noc_chapter02_menu.push_back(new Example_2_4());
 }
 
 void InitMiscMenu()
