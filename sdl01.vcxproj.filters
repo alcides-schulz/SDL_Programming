@@ -94,6 +94,27 @@
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_3.h">
       <Filter>TheNatureOfCode\Chapter01</Filter>
     </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_4.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_5.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_6.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_7.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_8.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_9.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_10.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

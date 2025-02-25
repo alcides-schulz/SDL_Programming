@@ -1,3 +1,7 @@
+//-------------------------------------------------------------------------------------------------
+//  SDL Programming menu
+//-------------------------------------------------------------------------------------------------
+
 #include "SDL_Framework.h"
 #include "UniverseProceduralGeneration/SDL_UniverseProceduralGeneration.h"
 #include "SnowfallSimulation/SDL_Snowfall.h"
@@ -9,6 +13,13 @@
 #include "TheNatureOfCode/Chapter01/Example_1_1.h"
 #include "TheNatureOfCode/Chapter01/Example_1_2.h"
 #include "TheNatureOfCode/Chapter01/Example_1_3.h"
+#include "TheNatureOfCode/Chapter01/Example_1_4.h"
+#include "TheNatureOfCode/Chapter01/Example_1_5.h"
+#include "TheNatureOfCode/Chapter01/Example_1_6.h"
+#include "TheNatureOfCode/Chapter01/Example_1_7.h"
+#include "TheNatureOfCode/Chapter01/Example_1_8.h"
+#include "TheNatureOfCode/Chapter01/Example_1_9.h"
+#include "TheNatureOfCode/Chapter01/Example_1_10.h"
 
 #include "TheNatureOfCode/Chapter02/Example_2_1.h"
 #include "TheNatureOfCode/Chapter02/Example_2_2.h"
@@ -23,13 +34,6 @@ vector<SDL_Framework *> misc_menu;
 // The nature of code book
 vector<SDL_Framework *> noc_chapter01_menu;
 vector<SDL_Framework *> noc_chapter02_menu;
-SDL_Framework *GetInstanceExample_1_4();
-SDL_Framework *GetInstanceExample_1_5();
-SDL_Framework *GetInstanceExample_1_6();
-SDL_Framework *GetInstanceExample_1_7();
-SDL_Framework *GetInstanceExample_1_8();
-SDL_Framework *GetInstanceExample_1_9();
-SDL_Framework *GetInstanceExample_1_10();
 
 void InitNatureOfCodeMenus()
 {
@@ -37,13 +41,13 @@ void InitNatureOfCodeMenus()
     noc_chapter01_menu.push_back(new Example_1_1());
     noc_chapter01_menu.push_back(new Example_1_2());
     noc_chapter01_menu.push_back(new Example_1_3());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_4());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_5());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_6());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_7());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_8());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_9());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_10());
+    noc_chapter01_menu.push_back(new Example_1_4());
+    noc_chapter01_menu.push_back(new Example_1_5());
+    noc_chapter01_menu.push_back(new Example_1_6());
+    noc_chapter01_menu.push_back(new Example_1_7());
+    noc_chapter01_menu.push_back(new Example_1_8());
+    noc_chapter01_menu.push_back(new Example_1_9());
+    noc_chapter01_menu.push_back(new Example_1_10());
     // chapter 02
     noc_chapter02_menu.push_back(new Example_2_1());
     noc_chapter02_menu.push_back(new Example_2_2());
