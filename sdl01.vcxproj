@@ -55,6 +55,7 @@
     <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01Mover.h" />
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_1.h" />
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_2.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_3.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02Mover.h" />

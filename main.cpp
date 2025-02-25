@@ -8,6 +8,7 @@
 
 #include "TheNatureOfCode/Chapter01/Example_1_1.h"
 #include "TheNatureOfCode/Chapter01/Example_1_2.h"
+#include "TheNatureOfCode/Chapter01/Example_1_3.h"
 
 #include "TheNatureOfCode/Chapter02/Example_2_1.h"
 #include "TheNatureOfCode/Chapter02/Example_2_2.h"
@@ -22,7 +23,6 @@ vector<SDL_Framework *> misc_menu;
 // The nature of code book
 vector<SDL_Framework *> noc_chapter01_menu;
 vector<SDL_Framework *> noc_chapter02_menu;
-SDL_Framework *GetInstanceExample_1_3();
 SDL_Framework *GetInstanceExample_1_4();
 SDL_Framework *GetInstanceExample_1_5();
 SDL_Framework *GetInstanceExample_1_6();
@@ -36,7 +36,7 @@ void InitNatureOfCodeMenus()
     // chapter 01
     noc_chapter01_menu.push_back(new Example_1_1());
     noc_chapter01_menu.push_back(new Example_1_2());
-    noc_chapter01_menu.push_back(GetInstanceExample_1_3());
+    noc_chapter01_menu.push_back(new Example_1_3());
     noc_chapter01_menu.push_back(GetInstanceExample_1_4());
     noc_chapter01_menu.push_back(GetInstanceExample_1_5());
     noc_chapter01_menu.push_back(GetInstanceExample_1_6());
