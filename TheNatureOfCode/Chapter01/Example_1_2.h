@@ -10,9 +10,9 @@ public:
     Example_1_2() : SDL_Framework("Example 1.2: Bouncing ball with PVectors", 400, 100, 1200, 800, 0) {}
     bool UserRender(int elapsed_time) override;
 private:
-    PVector location = PVector(100, 100);
-    PVector velocity = PVector(1, 3.3f);
-    int radius = 16;
+    PVector location_ = PVector(100, 100);
+    PVector velocity_ = PVector(1, 3.3f);
+    int radius_ = 16;
 };
 
 #endif

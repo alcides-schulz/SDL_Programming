@@ -4,14 +4,14 @@ bool Example_1_2::UserRender(int elapsed_time)
 {
     SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
     SDL_RenderClear(Renderer());
-    location.Add(velocity);
-    if (location.x > WindowWidth() - radius || location.x < radius) {
-        velocity.x *= -1;
+    location_.Add(velocity_);
+    if (location_.x > WindowWidth() - radius_ || location_.x < radius_) {
+        velocity_.x *= -1;
     }
-    if (location.y > WindowHeight() - radius || location.y < radius) {
-        velocity.y *= -1;
+    if (location_.y > WindowHeight() - radius_ || location_.y < radius_) {
+        velocity_.y *= -1;
     }
-    DrawCircle({ (int)location.x, (int)location.y }, radius, { 255, 0, 0, 0 }, true);
+    DrawCircle({ (int)location_.x, (int)location_.y }, radius_, { 255, 0, 0, 0 }, true);
     return true;
 }
 

@@ -25,6 +25,7 @@
 #include "TheNatureOfCode/Chapter02/Example_2_2.h"
 #include "TheNatureOfCode/Chapter02/Example_2_3.h"
 #include "TheNatureOfCode/Chapter02/Example_2_4.h"
+#include "TheNatureOfCode/Chapter02/Example_2_5.h"
 
 using namespace std;
 
@@ -53,6 +54,7 @@ void InitNatureOfCodeMenus()
     noc_chapter02_menu.push_back(new Example_2_2());
     noc_chapter02_menu.push_back(new Example_2_3());
     noc_chapter02_menu.push_back(new Example_2_4());
+    noc_chapter02_menu.push_back(new Example_2_5());
 }
 
 void InitMiscMenu()

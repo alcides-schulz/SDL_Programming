@@ -2,7 +2,7 @@
 #define EXAMPLE_2_1_H
 
 #include "../../SDL_Framework.h"
-#include "Chapter02Mover.h"
+#include "Chapter02MoverV1.h"
 
 class Example_2_1 : public SDL_Framework
 {
@@ -11,7 +11,7 @@ public:
     bool UserInit() override;
     bool UserRender(int elapsed_time) override;
 private:
-    Chapter02Mover *mover_;
+    Chapter02MoverV1 *mover_;
 };
 
 #endif

@@ -67,19 +67,10 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01Mover.h">
-      <Filter>TheNatureOfCode\Chapter01</Filter>
-    </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02Mover.h">
-      <Filter>TheNatureOfCode\Chapter02</Filter>
-    </ClInclude>
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_2.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_3.h">
-      <Filter>TheNatureOfCode\Chapter02</Filter>
-    </ClInclude>
-    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_4.h">
@@ -114,6 +105,24 @@
     </ClInclude>
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_10.h">
       <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Liquid.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_5.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV1.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV2.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter01\Chapter01MoverV1.h">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -177,22 +186,31 @@
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_1.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
-    <ClCompile Include="TheNatureOfCode\Chapter01\Chapter01Mover.cpp">
-      <Filter>TheNatureOfCode\Chapter01</Filter>
-    </ClCompile>
-    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02Mover.cpp">
-      <Filter>TheNatureOfCode\Chapter02</Filter>
-    </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_2.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_3.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
-    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverFriction.cpp">
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_4.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
-    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_4.cpp">
+    <ClCompile Include="TheNatureOfCode\Chapter02\Liquid.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_5.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV1.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV2.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter01\Chapter01MoverV1.cpp">
+      <Filter>TheNatureOfCode\Chapter01</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
   </ItemGroup>

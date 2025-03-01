@@ -3,7 +3,7 @@
 
 #include "../../SDL_Framework.h"
 #include "../Common/PVector.h"
-#include "../Chapter01/Chapter01Mover.h"
+#include "../Chapter01/Chapter01MoverV1.h"
 
 class Example_1_8 : public SDL_Framework
 {
@@ -12,9 +12,7 @@ public:
     bool UserInit() override;
     bool UserRender(int elapsed_time) override;
 private:
-    Chapter01Mover *mover;
+    Chapter01MoverV1 *mover_;
 };
 
 #endif
-
-// END
