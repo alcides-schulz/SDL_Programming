@@ -68,6 +68,12 @@ public:
         }
     }
 
+    void SetMag(float max)
+    {
+        Normalize();
+        Multiply(max);
+    }
+ 
     void Limit(float max)
     {
         if (Magnitude() > max * max) {
@@ -75,7 +81,6 @@ public:
             Multiply(max);
         }
     }
- 
 };
 
 class SDL_Framework

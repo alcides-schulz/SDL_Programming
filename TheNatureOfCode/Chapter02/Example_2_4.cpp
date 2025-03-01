@@ -25,7 +25,7 @@ bool Example_2_4::UserRender(int elapsed_time)
         float c = 0.1f;
         PVector friction(mover_->GetVelocity().x, mover_->GetVelocity().y);
         friction.Mult(-1);
-        friction.Limit(c); // setMag()
+        friction.SetMag(c); // setMag()
         mover_->ApplyForce(friction);
     }
 

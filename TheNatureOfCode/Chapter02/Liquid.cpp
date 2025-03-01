@@ -12,7 +12,7 @@ PVector Liquid::CalculateDrag(Chapter02MoverV3 *mover)
     float drag_magnitude = drag_coef_ * speed * speed;
     PVector drag_force = PVector(mover->GetVelocity().x, mover->GetVelocity().y);
     drag_force.Mult(-1);
-    drag_force.Limit(drag_magnitude);
+    drag_force.SetMag(drag_magnitude);
     return drag_force;
 }
 

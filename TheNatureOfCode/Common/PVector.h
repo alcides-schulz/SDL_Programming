@@ -17,6 +17,7 @@ public:
     void Div(float value);
     float Mag();
     void Normalize();
+    void SetMag(float max);
     void Limit(float max);
     static PVector Random2D();
 };

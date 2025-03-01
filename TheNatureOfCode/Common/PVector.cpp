@@ -43,6 +43,12 @@ void PVector::Normalize()
     }
 }
 
+void PVector::SetMag(float max)
+{
+    Normalize();
+    Mult(max);
+}
+
 void PVector::Limit(float max)
 {
     if (Mag() > max * max) {
