@@ -18,6 +18,7 @@ public:
     void Display(SDL_Framework *framework);
     void CheckEdges(SDL_Framework *framework);
     int GetMass(void) { return mass_; };
+    PVector GetPosition(void) { return position_; };
 private:
     PVector position_;
     PVector velocity_;

@@ -124,6 +124,12 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Attractor.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_6.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -211,6 +217,12 @@
       <Filter>TheNatureOfCode\Chapter01</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Attractor.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_6.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
   </ItemGroup>
