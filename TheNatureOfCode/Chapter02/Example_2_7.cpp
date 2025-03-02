@@ -17,6 +17,22 @@ bool Example_2_7::UserRender(int elapsed_time)
     SDL_SetRenderDrawColor(Renderer(), 255, 255, 255, 255);
     SDL_RenderClear(Renderer());
 
+    if (!isDragging && IsMouseButtonPressed(kMouseLeftButton)) {
+        auto mouse_position = PVector((float)MousePosition().x, (float)MousePosition().y);
+        auto distance = PVector::Distance(mouse_position, attractor_->GetPosition());
+        if (distance <= attractor_->GetRadius()) {
+            isDragging = true;
+        }
+    }
+
+    if (isDragging && IsMouseButtonPressed(kMouseLeftButton)) {
+        attractor_->SetPosition(PVector((float)MousePosition().x, (float)MousePosition().y));
+    }
+
+    if (!IsMouseButtonPressed(kMouseLeftButton)) {
+        isDragging = false;
+    }
+
     attractor_->Display(this);
 
     for (int i = 0; i < std::size(mover_); i++) {

@@ -146,14 +146,20 @@ void SDL_Framework::HandleEvents()
             mouse_position_.y = event.motion.y;
             break;
         case SDL_MOUSEBUTTONDOWN:
-            if (event.button.button == SDL_BUTTON_LEFT) mouse_button_states_[kMouseLeftButton] = true;
-            if (event.button.button == SDL_BUTTON_MIDDLE) mouse_button_states_[kMouseMiddleButton] = true;
-            if (event.button.button == SDL_BUTTON_RIGHT) mouse_button_states_[kMouseRightButton] = true;
+            if (event.button.button == SDL_BUTTON_LEFT)
+                mouse_button_states_[kMouseLeftButton] = true;
+            if (event.button.button == SDL_BUTTON_MIDDLE)
+                mouse_button_states_[kMouseMiddleButton] = true;
+            if (event.button.button == SDL_BUTTON_RIGHT)
+                mouse_button_states_[kMouseRightButton] = true;
             break;
         case SDL_MOUSEBUTTONUP:
-            if (event.button.button == SDL_BUTTON_LEFT) mouse_button_states_[kMouseLeftButton] = false;
-            if (event.button.button == SDL_BUTTON_MIDDLE) mouse_button_states_[kMouseMiddleButton] = false;
-            if (event.button.button == SDL_BUTTON_RIGHT) mouse_button_states_[kMouseRightButton] = false;
+            if (event.button.button == SDL_BUTTON_LEFT)
+                mouse_button_states_[kMouseLeftButton] = false;
+            if (event.button.button == SDL_BUTTON_MIDDLE)
+                mouse_button_states_[kMouseMiddleButton] = false;
+            if (event.button.button == SDL_BUTTON_RIGHT)
+                mouse_button_states_[kMouseRightButton] = false;
             break;
         default:
             break;

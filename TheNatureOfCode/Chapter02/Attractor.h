@@ -12,10 +12,13 @@ class Attractor
 public:
     Attractor(PVector position, int mass) : position_(position), mass_(mass) 
     { 
-        radius_ = mass * 10;
+        radius_ = mass * 4;
     };
     PVector Attract(Chapter02MoverV1 *mover);
     void Display(SDL_Framework *framework);
+    PVector GetPosition(void) { return position_; };
+    void SetPosition(PVector position) { position_ = position; };
+    int GetRadius(void) { return radius_; };
 private:
     PVector position_;
     PVector velocity_;

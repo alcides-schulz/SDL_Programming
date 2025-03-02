@@ -20,4 +20,5 @@ public:
     void SetMag(float max);
     void Limit(float max);
     static PVector Random2D();
+    static float Distance(PVector vector1, PVector vector2);
 };

@@ -66,4 +66,11 @@ PVector PVector::Random2D()
     return PVector(cos(angle), sin(angle));
 }
 
+float PVector::Distance(PVector vector1, PVector vector2)
+{
+    auto dx = std::abs(vector1.x - vector2.x);
+    auto dy = std::abs(vector1.y - vector2.y);
+    return sqrt(dx * dx + dy * dy);
+}
+
 // End

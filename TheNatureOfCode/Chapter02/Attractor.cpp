@@ -5,7 +5,7 @@ PVector Attractor::Attract(Chapter02MoverV1 *mover)
     auto force = PVector(position_.x, position_.y);
     force.Sub(mover->GetPosition());
     auto distance = force.Mag();
-    distance = (float)std::fmax(3, std::fmin(15, distance));
+    distance = (float)std::fmax(10, std::fmin(25, distance));
     auto strength = (kGravity * mass_ * mover->GetMass()) / (distance * distance);
     force.SetMag(strength);
     return force;

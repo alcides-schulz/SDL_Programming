@@ -14,6 +14,7 @@ public:
 private:
     Attractor           *attractor_;
     Chapter02MoverV1    *mover_[10];
+    bool                isDragging = false;
 };
 
 #endif
