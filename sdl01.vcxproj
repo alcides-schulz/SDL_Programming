@@ -37,6 +37,7 @@
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_8.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter01\Example_1_9.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Attractor.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Body.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV1.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV2.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.cpp" />
@@ -47,6 +48,8 @@
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_5.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_6.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_7.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_8.cpp" />
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_9.cpp" />
     <ClCompile Include="TheNatureOfCode\Chapter02\Liquid.cpp" />
     <ClCompile Include="TheNatureOfCode\Common\PVector.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />
@@ -70,6 +73,7 @@
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_8.h" />
     <ClInclude Include="TheNatureOfCode\Chapter01\Example_1_9.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Attractor.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Body.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV2.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Chapter02MoverV3.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_1.h" />
@@ -80,6 +84,8 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_5.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_6.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_7.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_8.h" />
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_9.h" />
     <ClInclude Include="TheNatureOfCode\Chapter02\Liquid.h" />
     <ClInclude Include="TheNatureOfCode\Common\PVector.h" />
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />

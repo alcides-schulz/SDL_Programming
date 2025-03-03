@@ -133,6 +133,15 @@
     <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_7.h">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Body.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_8.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
+    <ClInclude Include="TheNatureOfCode\Chapter02\Example_2_9.h">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -229,6 +238,15 @@
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
     <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_7.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Body.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_8.cpp">
+      <Filter>TheNatureOfCode\Chapter02</Filter>
+    </ClCompile>
+    <ClCompile Include="TheNatureOfCode\Chapter02\Example_2_9.cpp">
       <Filter>TheNatureOfCode\Chapter02</Filter>
     </ClCompile>
   </ItemGroup>

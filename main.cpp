@@ -28,6 +28,8 @@
 #include "TheNatureOfCode/Chapter02/Example_2_5.h"
 #include "TheNatureOfCode/Chapter02/Example_2_6.h"
 #include "TheNatureOfCode/Chapter02/Example_2_7.h"
+#include "TheNatureOfCode/Chapter02/Example_2_8.h"
+#include "TheNatureOfCode/Chapter02/Example_2_9.h"
 
 using namespace std;
 
@@ -59,6 +61,8 @@ void InitNatureOfCodeMenus()
     noc_chapter02_menu.push_back(new Example_2_5());
     noc_chapter02_menu.push_back(new Example_2_6());
     noc_chapter02_menu.push_back(new Example_2_7());
+    noc_chapter02_menu.push_back(new Example_2_8());
+    noc_chapter02_menu.push_back(new Example_2_9());
 }
 
 void InitMiscMenu()

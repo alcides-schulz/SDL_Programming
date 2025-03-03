@@ -5,8 +5,6 @@
 #include "../Common/PVector.h"
 #include "Chapter02MoverV1.h"
 
-constexpr int kGravity = 10;
-
 class Attractor
 {
 public:
@@ -19,6 +17,7 @@ public:
     PVector GetPosition(void) { return position_; };
     void SetPosition(PVector position) { position_ = position; };
     int GetRadius(void) { return radius_; };
+    static const int kGravity = 10;
 private:
     PVector position_;
     PVector velocity_;
