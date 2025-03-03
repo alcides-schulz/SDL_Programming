@@ -19,6 +19,7 @@ public:
     void CheckEdges(SDL_Framework *framework);
     int GetMass(void) { return mass_; };
     PVector GetPosition(void) { return position_; };
+    void SetVelocity(PVector velocity) { velocity_ = velocity; };
 private:
     PVector position_;
     PVector velocity_;

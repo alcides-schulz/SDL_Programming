@@ -43,10 +43,10 @@ void PVector::Normalize()
     }
 }
 
-void PVector::SetMag(float max)
+void PVector::SetMag(float magnitude)
 {
     Normalize();
-    Mult(max);
+    Mult(magnitude);
 }
 
 void PVector::Limit(float max)

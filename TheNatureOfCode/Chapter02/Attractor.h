@@ -5,7 +5,7 @@
 #include "../Common/PVector.h"
 #include "Chapter02MoverV1.h"
 
-constexpr int kGravity = 1;
+constexpr int kGravity = 10;
 
 class Attractor
 {

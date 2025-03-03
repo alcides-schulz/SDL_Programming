@@ -3,6 +3,7 @@
 bool Example_2_6::UserInit()
 {
     mover_ = new Chapter02MoverV1(PVector(300, 0), 2);
+    mover_->SetVelocity(PVector(1, 0));
     attractor_ = new Attractor(PVector(WindowWidth() / 2.0f, WindowHeight() / 2.0f), 10);
     return true;
 }
@@ -19,21 +20,19 @@ bool Example_2_6::UserRender(int elapsed_time)
             isDragging = true;
         }
     }
-
     if (isDragging && IsMouseButtonPressed(kMouseLeftButton)) {
         attractor_->SetPosition(PVector((float)MousePosition().x, (float)MousePosition().y));
     }
-
     if (!IsMouseButtonPressed(kMouseLeftButton)) {
         isDragging = false;
     }
+    
+    attractor_->Display(this);
 
     PVector force = attractor_->Attract(mover_);
     mover_->ApplyForce(force);
     mover_->Update();
     mover_->CheckEdges(this);
-
-    attractor_->Display(this);
     mover_->Display(this);
 
     return true;

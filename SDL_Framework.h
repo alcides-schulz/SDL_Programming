@@ -68,10 +68,10 @@ public:
         }
     }
 
-    void SetMag(float max)
+    void SetMag(float magnitude)
     {
         Normalize();
-        Multiply(max);
+        Multiply(magnitude);
     }
  
     void Limit(float max)
