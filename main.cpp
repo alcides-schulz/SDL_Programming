@@ -9,6 +9,7 @@
 #include "WaveFunctionCollapse/SDL_WaveFunctionCollapse.h"
 #include "Sand/SDL_Sand.h"
 #include "RayCastingWalls/SDL_RayCastingWalls.h"
+#include "Test/TestRotation.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ vector<SDL_Framework *> misc_menu = {
     new SDL_WaveFunctionCollapse("Images\\Circuit"),
     new SDL_Sand(),
     new SDL_RayCastingWalls(),
+    new TestRotation(),
 };
 
 int main(int argc, char* argv[])

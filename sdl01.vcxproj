@@ -25,6 +25,7 @@
     <ClCompile Include="Sand\SDL_Sand.cpp" />
     <ClCompile Include="SDL_Framework.cpp" />
     <ClCompile Include="SnowfallSimulation\SDL_Snowfall.cpp" />
+    <ClCompile Include="Test\TestRotation.cpp" />
     <ClCompile Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.cpp" />
     <ClCompile Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.cpp" />
   </ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="Sand\SDL_Sand.h" />
     <ClInclude Include="SDL_Framework.h" />
     <ClInclude Include="SnowfallSimulation\SDL_Snowfall.h" />
+    <ClInclude Include="Test\TestRotation.h" />
     <ClInclude Include="UniverseProceduralGeneration\SDL_UniverseProceduralGeneration.h" />
     <ClInclude Include="WaveFunctionCollapse\SDL_WaveFunctionCollapse.h" />
   </ItemGroup>
